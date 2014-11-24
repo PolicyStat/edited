@@ -1,0 +1,29 @@
+{
+  "name": "text-edit-discern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/TextEditDiscern/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "dom-event": "0.0.1",
+    "keycode": "^1.0.0",
+    "lodash.iselement": "^2.4.1",
+    "zuul": "^1.13.1"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "keysim": "^1.0.2",
+    "sinon": "^1.12.1"
+  },
+  "scripts": {
+    "test": "./node_modules/zuul/bin/zuul --phantom -- test/test.js"
+  },
+  "keywords": [
+    "browser",
+    "text-edit"
+  ],
+  "author": "Shahar Or <mightyiampresence@gmail.com>",
+  "license": "ISC"
+}
