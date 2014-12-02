@@ -7,7 +7,7 @@
     "test": "test"
   },
   "dependencies": {
-    "dom-event": "0.0.1",
+    "dom-events": "^0.1.1",
     "keycode": "^1.0.0",
     "lodash.iselement": "^2.4.1"
   },
