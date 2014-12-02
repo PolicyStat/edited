@@ -21,32 +21,44 @@ function typeIn(keystrokes) {
 
 var expect = require("expect.js");
 describe("TextEditDiscern", function(){
-    it("should throw when not given arguments", function(){
+    it("throws when not given arguments", function(){
         expect(function(){
             discern = new TextEditDiscern();
         }).to.throwError();
     });
-    it("should throw when not given a DOM element", function(){
+    it("throws when not given a DOM element", function(){
         expect(function(){
             discern = new TextEditDiscern("not a DOM element", function(){});
         }).to.throwError();
     });
-    it("should throw when not given a callback", function(){
+    it("throws when not given a callback", function(){
         expect(function(){
             discern = new TextEditDiscern(textarea, 12412);
         }).to.throwError();
     });
-    it("should instantiate on an element", function(){
+    it("instantiates on an element", function(){
         spy = sinon.spy();
         discern = new TextEditDiscern(textarea, spy);
         expect(discern).to.be.a(TextEditDiscern);
     });
-    it("should not callback as long as text is added", function(){
+    it("does not callback as long as text is added", function(){
         typeIn("The quick, brown fox jumped over the lazy dog.");
         expect(spy.callCount).to.be(0);
     });
-    it("should callback if text is removed after text is added", function(){
+    it("calls back if text is removed after text is added", function(){
         press("backspace");
-        expect(spy.calledOnce).to.equal(true);
+        expect(spy.callCount).to.be(1);
+    });
+    it("calls back if text is added after text is removed", function(){
+        typeIn("Foooooooooooooooo");
+        expect(spy.callCount).to.be(2);
+    });
+    it("calls back if text is removed forward after text is added", function(){
+        press("delete");
+        expect(spy.callCount).to.be(3);
+    });
+    it("calls back if text is added after text is removed forward", function(){
+        typeIn("Barr.");
+        expect(spy.callCount).to.be(4);
     });
 });
