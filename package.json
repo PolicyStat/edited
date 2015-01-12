@@ -14,9 +14,7 @@
   "devDependencies": {
     "expect.js": "^0.3.1",
     "keysim": "^1.0.2",
-    "phantomjs": "^1.9.12",
     "sinon": "^1.12.1",
-    "zuul": "^1.14.0"
   },
   "scripts": {
     "test": "./node_modules/zuul/bin/zuul --phantom -- test/test.js"
