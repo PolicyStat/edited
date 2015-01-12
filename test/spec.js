@@ -20,52 +20,51 @@ function typeIn(keystrokes) {
     });
 }
 
-var bun = require("expect.js");
 describe("TextEditDiscern", function(){
     it("throws when not given arguments", function(){
-        bun(function(){
+        expect(function(){
             discern = new TextEditDiscern();
-        }).to.throwError();
+        }).toThrow();
     });
     it("throws when not given a DOM element", function(){
-        bun(function(){
+        expect(function(){
             discern = new TextEditDiscern("not a DOM element", function(){});
-        }).to.throwError();
+        }).toThrow();
     });
     it("throws when not given a callback", function(){
-        bun(function(){
+        expect(function(){
             discern = new TextEditDiscern(textarea, 12412);
-        }).to.throwError();
+        }).toThrow();
     });
     it("instantiates on an element", function(){
         spy = sinon.spy();
         discern = new TextEditDiscern(textarea, spy);
-        bun(discern).to.be.a(TextEditDiscern);
+        expect(discern instanceof TextEditDiscern).toBe(true);
     });
     it("does not callback as long as text is added", function(){
         typeIn("The quick, brown fox jumped over the lazy dog.");
-        bun(spy.callCount).to.be(0);
+        expect(spy.callCount).toBe(0);
     });
     it("calls back if text is removed after text is added", function(){
         press("backspace");
-        bun(spy.callCount).to.be(1);
+        expect(spy.callCount).toBe(1);
     });
     it("calls back if text is added after text is removed", function(){
         typeIn("Foooooooooooooooo");
-        bun(spy.callCount).to.be(2);
+        expect(spy.callCount).toBe(2);
     });
     it("calls back if text is removed forward after text is added", function(){
         press("delete");
-        bun(spy.callCount).to.be(3);
+        expect(spy.callCount).toBe(3);
     });
     it("calls back if text is added after text is removed forward", function(){
         typeIn("Barr.");
-        bun(spy.callCount).to.be(4);
+        expect(spy.callCount).toBe(4);
     });
     it("calls back on paste after text removed", function(){
         emit(textarea, "paste");
         emit(textarea, "paste");
         emit(textarea, "paste");
-        bun(spy.callCount).to.be(5);
+        expect(spy.callCount).toBe(5);
     });
 });
