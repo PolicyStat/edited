@@ -6,19 +6,56 @@ var textarea = document.createElement("textarea");
 document.body.appendChild(textarea);
 var TextEditDiscern = require("..");
 var discern;
-var sinon = require("sinon");
-var spy;
+var spy = jasmine.createSpy();
 var keyboard = require("keysim").Keyboard.US_ENGLISH;
 var emit = require("dom-events").emit;
+var randomChars = require("randomatic");
+var callNTimes = require("call-n-times");
+var forEach = require("foreach");
+var rnd = require("rnd");
 
-function press(key) {
+var press = function (key) {
     keyboard.dispatchEventsForAction(key, textarea);
-}
-function typeIn(keystrokes) {
-    keystrokes.split("").forEach(function(key){
-        press(key);
-    });
-}
+};
+
+var editTypes = {
+    characterAddition: {
+        eachEventTriggersCallback: false,
+        triggerFunc: function() {
+            press(randomChars("*", 1));
+        }
+    },
+    backwardsRemoval: {
+        eachEventTriggersCallback: false,
+        triggerFunc: function() {
+            press("backspace", 10);
+        }
+    },
+    forwardRemoval: {
+        eachEventTriggersCallback: false,
+        triggerFunc: function () {
+            press("delete", 10);
+        }
+    },
+    space: {
+        eachEventTriggersCallback: false,
+        triggerFunc: function () {
+            press(" ");
+        }
+    },
+    paste: {
+        eachEventTriggersCallback: true,
+        triggerFunc: function () {
+            emit(textarea, "paste");
+        }
+    }
+};
+
+var triggerEditType = function(editType) {
+    var times = editType.eachEventTriggersCallback ? 1 : rnd(999, 2);
+
+    callNTimes(editType.triggerFunc, times);
+};
 
 describe("TextEditDiscern", function(){
     it("throws when not given arguments", function(){
@@ -37,34 +74,37 @@ describe("TextEditDiscern", function(){
         }).toThrow();
     });
     it("instantiates on an element", function(){
-        spy = sinon.spy();
         discern = new TextEditDiscern(textarea, spy);
         expect(discern instanceof TextEditDiscern).toBe(true);
     });
-    it("does not callback as long as text is added", function(){
-        typeIn("The quick, brown fox jumped over the lazy dog.");
-        expect(spy.callCount).toBe(0);
-    });
-    it("calls back if text is removed after text is added", function(){
-        press("backspace");
-        expect(spy.callCount).toBe(1);
-    });
-    it("calls back if text is added after text is removed", function(){
-        typeIn("Foooooooooooooooo");
-        expect(spy.callCount).toBe(2);
-    });
-    it("calls back if text is removed forward after text is added", function(){
-        press("delete");
-        expect(spy.callCount).toBe(3);
-    });
-    it("calls back if text is added after text is removed forward", function(){
-        typeIn("Barr.");
-        expect(spy.callCount).toBe(4);
-    });
-    it("calls back on paste after text removed", function(){
-        emit(textarea, "paste");
-        emit(textarea, "paste");
-        emit(textarea, "paste");
-        expect(spy.callCount).toBe(5);
+});
+
+describe("an instance", function() {
+    it("calls back wisely", function(){
+        forEach(editTypes, function(thisEditType){
+            var otherEditTypes = [];
+
+            forEach(editTypes, function(editType){
+                if (editType !== thisEditType) {
+                    otherEditTypes.push(editType);
+                }
+            });
+
+            otherEditTypes.forEach(function(otherEditType){
+                expect(spy).not.toHaveBeenCalled();
+
+                triggerEditType(thisEditType);
+                expect(spy.calls.count()).toEqual(1);
+
+                triggerEditType(otherEditType);
+                expect(spy.calls.count()).toEqual(2);
+
+                triggerEditType(thisEditType);
+                expect(spy.calls.count()).toEqual(3);
+
+                discern.reset();
+                spy.calls.reset();
+            });
+        });
     });
 });
