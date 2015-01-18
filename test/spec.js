@@ -81,26 +81,42 @@ describe("TextEditDiscern", function(){
 
 describe("an instance", function() {
     it("calls back wisely", function(){
+        // Loop over the edit types
         forEach(editTypes, function(thisEditType){
             var otherEditTypes = [];
 
+            // Get a list of all the other edit types (not current one)
             forEach(editTypes, function(editType){
                 if (editType !== thisEditType) {
                     otherEditTypes.push(editType);
                 }
             });
 
+            // Go over the other edit types
             otherEditTypes.forEach(function(otherEditType){
+                // CB not yet called
                 expect(spy).not.toHaveBeenCalled();
 
+                // First edit type always triggers callback
                 triggerEditType(thisEditType);
                 expect(spy.calls.count()).toEqual(1);
 
+                // Triggering a different edit type triggers callback
                 triggerEditType(otherEditType);
                 expect(spy.calls.count()).toEqual(2);
 
+                // Triggering the previous edit type again triggers callback
                 triggerEditType(thisEditType);
                 expect(spy.calls.count()).toEqual(3);
+
+                if (thisEditType.eachEventTriggersCallback) {
+                    // This type of edit is triggered only once by
+                    // `triggerEditType` and we would like to see that another
+                    // triggering of it triggers a callback.
+                    triggerEditType(thisEditType);
+                    expect(spy.calls.count()).toEqual(4);
+                }
+
 
                 discern.reset();
                 spy.calls.reset();
