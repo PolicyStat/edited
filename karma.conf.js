@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Jan 12 2015 17:57:20 GMT+0200 (IST)
 
-var specFile = 'test/spec.js'
+var specFile = 'spec/spec.js'
 
 module.exports = function(config) {
   var confObject = {
