@@ -9,8 +9,15 @@ var emit = require('dom-events').emit
 var randomChars = require('randomatic')
 var forEach = require('foreach')
 
-var editable = document.createElement('div')
-document.body.appendChild(editable)
+var isNode = require('isnode')
+if (isNode) {
+  var jsdom = require('jsdom')
+  var doc = jsdom.jsdom()
+} else {
+  var doc = document;
+}
+var editable = doc.createElement('div')
+doc.body.appendChild(editable)
 editable.contentEditable = true
 editable.style.height = '10em'
 editable.style.width = '20em'

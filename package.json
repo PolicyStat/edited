@@ -14,7 +14,9 @@
   "devDependencies": {
     "dom-events": "^0.1.1",
     "foreach": "^2.0.5",
+    "isnode": "0.0.1",
     "jasmine-core": "^2.1.3",
+    "jsdom": "^3.1.0",
     "karma": "^0.12.31",
     "karma-browserify": "^3.0.1",
     "karma-chrome-launcher": "^0.1.7",
