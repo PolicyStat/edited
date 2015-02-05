@@ -20,7 +20,13 @@ module.exports = function(config) {
     files: [specFile],
 
     browserify: {
-      debug: true
+      debug: true,
+      configure: function(bundle) {
+        bundle.on('prebundle', function() {
+          // browsers have real DOM
+          bundle.exclude('jsdom')
+        })
+      }
     },
 
     // list of files to exclude
