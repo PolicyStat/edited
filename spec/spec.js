@@ -1,6 +1,9 @@
 /* eslint-env browser, node, jasmine */
 'use strict'
 
+// set to true for some `console.log`ging
+var debug = false
+
 // external modules
 var TextEditDiscern = require('..')
 var keyboard = require('keysim').Keyboard.US_ENGLISH
@@ -12,56 +15,71 @@ var isNode = require('isnode')
 // get a document, whether in browser or node
 var doc = isNode ? require('jsdom').jsdom() : document
 
-// set up an editable element to test on.
-var editable = doc.createElement('div')
-doc.body.appendChild(editable)
-// not required for the tests; it enables manual tinkering
-editable.contentEditable = true
-editable.style.height = '10em'
-editable.style.width = '20em'
-editable.style.border = '1px solid pink'
-
-// pressing a key by name
-var press = function (key) {
-  keyboard.dispatchEventsForAction(key, editable)
+// pressing a key by name on an element
+var press = function (element, key) {
+  keyboard.dispatchEventsForAction(key, element)
 }
 
 // the known edit types
 var editTypes = {
   characterAddition: {
-    // how to simulate this event artificially
+    // how to simulate this event artificially. called with the instance as this
     triggerFunc: function() {
-      press(randomChars('*', 1))
+      var self = this
+      press(self.element, randomChars('*', 1))
     }
   },
   backwardsRemoval: {
     triggerFunc: function() {
-      press('backspace')
+      var self = this
+      press(self.element, 'backspace')
     }
   },
   forwardRemoval: {
     triggerFunc: function () {
-      press('delete')
+      var self = this
+      press(self.element, 'delete')
     }
   },
   space: {
     triggerFunc: function () {
-      press(' ')
+      var self = this
+      press(self.element, ' ')
     }
   },
   paste: {
     // consecutive events of this type each trigger call back
     callsBackOnConsecutive: true,
     triggerFunc: function () {
-      emit(editable, 'paste')
+      var self = this
+      emit(self.element, 'paste')
     }
   },
   drop: {
     callsBackOnConsecutive: true,
     triggerFunc: function () {
-      emit(editable, 'drop')
+      var self = this
+      emit(self.element, 'drop')
     }
   }
+}
+// in each edit type object store its name
+forEach(editTypes, function(type, name) {
+  type.name = name
+})
+
+// sets up an element element to test on
+var makeEditableElement = function() {
+  var element = doc.createElement('div')
+  doc.body.appendChild(element)
+
+  // not required for the tests; it enables manual tinkering
+  element.contentEditable = true
+  element.style.height = '10em'
+  element.style.width = '20em'
+  element.style.border = '1px solid pink'
+
+  return element
 }
 
 describe('Instantiation', function() {
@@ -78,79 +96,137 @@ describe('Instantiation', function() {
   })
   it('throws when not given a callback', function() {
     expect(function() {
-      var discern = new TextEditDiscern(editable, 12412)
+      var element = makeEditableElement()
+      var discern = new TextEditDiscern(element, 12412)
     }).toThrow()
   })
   /* eslint no-unused-vars:1 */
-  it('instantiates on an element', function() {
+  it('instantiates on an element and does not callback initially', function() {
     var spy = jasmine.createSpy()
-    var discern = new TextEditDiscern(editable, spy)
+    var element = makeEditableElement()
+    var discern = new TextEditDiscern(element, spy)
     expect(discern instanceof TextEditDiscern).toBe(true)
-    discern.detach()
+    expect(spy).not.toHaveBeenCalled()
   })
 })
 
-// iterate over the edit types and test each against each other
-forEach(editTypes, function(former, formerName) {
-  former.name = formerName
-  var otherEditTypes = {}
+describe('`detach` method', function() {
+  it('detaches the instance\'s event listener from the instance\'s element',
+    function() {
+    var element = makeEditableElement()
 
-  forEach(editTypes, function(editType, name) {
-    if (editType !== former) {
-      otherEditTypes[name] = editType
+    var callbackCalled = 0 // this is what we test on
+
+    var callback = function() {
+      callbackCalled++
     }
+
+    var discern = new TextEditDiscern(element, callback)
+
+    // just checking that the callback works
+    editTypes.space.triggerFunc.call(discern)
+    expect(callbackCalled).toEqual(1)
+
+    // checking that `detach` method works
+    discern.detach()
+    editTypes.backwardsRemoval.triggerFunc.call(discern)
+    expect(callbackCalled).toEqual(1)
   })
+})
 
-  forEach(otherEditTypes, function(latter, latterName) {
-    describe('(F)ormer = ' + formerName + ', (L)atter = ' + latterName + ':', function() {
-      var instantiateTriggerAndAssert = function(
-        triggerSeq,
-        expectedCbCount,
-        doneWithThis
-      ) {
-        var i = 0
-        var cb = (function(doneAfter) {
-          return function() {
-            if (i > doneAfter) {
-              throw 'boom'
-            }
-            i++
-            if (!doneAfter || i === doneAfter) {
-              discern.detach()
-              doneWithThis()
-            }
-          }
-        })(expectedCbCount)
+// create edit type test pairs--each gets to be tested against each other
+var editTypeTestPairs = []
+forEach(editTypes, function(former) {
+  forEach(editTypes, function(latter) {
+    // we don't make twins--consecutives will be tested--no worries
+    if (former !== latter) editTypeTestPairs.push([former, latter])
+  })
+})
 
-        var discern = new TextEditDiscern(editable, cb)
+// this is the function that tests the pairs
+var instantiateTriggerAndAssert = function(
+  testPair,
+  // e.g `'FLF'`: former, latter, former
+  triggerSeq,
+  // how many call backs do we expect from this
+  expectedCbCount,
+  // this is jasmine's `done` for async testing
+  doneWithIt
+) {
+  var former = testPair[0]
+  var latter = testPair[1]
 
-        triggerSeq.split('').forEach(function(c) {
-          (c === 'F' ? former : latter).triggerFunc()
-        })
-        if (!triggerSeq.length) doneWithThis()
+  // creates a new callback
+  var genCallback = function(itDoneAfter) {
+    // the callback will be called multiple times.
+    // this `i` will count how many times the callback was called.
+    // it is defined in the callback's parent scope.
+    // if it was defined inside the callback it would have been reset to 0 with
+    // each call of the callback.
+    var i = 0
+
+    if (debug) console.log('gen: ' + former.name + ' vs ' + latter.name)
+
+    // the callback itself
+    return function() {
+      if (debug) console.log('cb:  i === ' + i + '; itDoneAfter === ' + itDoneAfter + '; ' + former.name + ' vs ' + latter.name)
+
+      // register in the parent scope that a callback was called
+      i++
+
+      if (i > itDoneAfter) {
+        throw 'FAILED: The callback for ' + former.name + ' vs ' +
+          latter.name + ' was called more times than expected'
       }
 
-      it('does not call back, initially', function(done) {
-        instantiateTriggerAndAssert('', 0, done)
-      })
+      if (i === itDoneAfter) {
+        // specs where `itDoneAfter > 0` are supposed to end succesfully, here.
+        // there are no `expect` calls. the fact that we got here means that
+        // the expected number of callbacks were called
+        doneWithIt()
+      } // else...
+      // this spec is not done yet. if the expected number of callback calls
+      // is not reached, this spec will timeout and fail
+    }
+  }
 
-      it('calls back once on F', function(done) {
-        instantiateTriggerAndAssert('F', 1, done)
-      })
+  // use the above callback generator
+  var cb = genCallback(expectedCbCount)
 
-      it('calls back twice on F,L', function(done) {
-        instantiateTriggerAndAssert('FL', 2, done)
-      })
+  var element = makeEditableElement()
+  var discern = new TextEditDiscern(element, cb)
 
-      it('calls back thrice on F,L,F', function(done) {
-        instantiateTriggerAndAssert('FLF', 3, done)
-      })
+  // trigger the former and the latter according to the provided sequence
+  triggerSeq.split('').forEach(function(c) {
+    var formerOrLatter = (c === 'F') ? former : latter
+    formerOrLatter.triggerFunc.call(discern)
+  })
+}
 
-      it('calls back ' + (former.callsBackOnConsecutive ? '6 times' : 'thrice') +
-        ' on F,F,F,L,F,F', function(done) {
-        var times = former.callsBackOnConsecutive ? 6 : 3
-        instantiateTriggerAndAssert('FFFLFF', times, done)
-      })
+// iterate over the edit types and test each against each other
+forEach(editTypeTestPairs, function(pair) {
+  var former = pair[0]
+  var latter = pair[1]
+  if (debug) console.log('testing ' + former.name + ' vs ' + latter.name)
+
+  describe('(F)ormer = ' + former.name + ', ' +
+    '(L)atter = ' + latter.name + ':', function() {
+    it('calls back once on F', function(done) {
+      instantiateTriggerAndAssert(pair, 'F', 1, done)
+    })
+
+    it('calls back twice on F,L', function(done) {
+      instantiateTriggerAndAssert(pair, 'FL', 2, done)
+    })
+
+    it('calls back thrice on F,L,F', function(done) {
+      instantiateTriggerAndAssert(pair, 'FLF', 3, done)
+    })
+
+    it('calls back ' + (former.callsBackOnConsecutive ? '6 times' : 'thrice') +
+      ' on F,F,F,L,F,F', function(done) {
+      var times = former.callsBackOnConsecutive ? 6 : 3
+      instantiateTriggerAndAssert(pair, 'FFFLFF', times, done)
     })
   })
 })
