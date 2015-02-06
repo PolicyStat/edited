@@ -23,7 +23,7 @@
     "karma-jasmine": "^0.3.4",
     "keysim": "^1.1.2",
     "randomatic": "^1.1.0",
-    "standard": "^2.4.1"
+    "standard": "^2.4.4"
   },
   "scripts": {
     "test": "standard && karma start --single-run --browsers Chrome",
