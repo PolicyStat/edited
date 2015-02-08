@@ -37,8 +37,8 @@ and drop.
 When the last event type is different than the previous, then it is
 determined that a change was made and the provided callback is fired.
 
-This could be useful for registering undo/redo points, resource–
-friendlier autosaves and probably more. Register an issue describing your
+This could be useful for registering undo/redo points, resource–friendlier
+autosaves and probably more. Register an issue describing your
 integration and I’ll mention it here.
 
 
