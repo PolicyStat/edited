@@ -20,10 +20,11 @@
     "keysim": "^1.1.2",
     "projectz": "^0.3.17",
     "randomatic": "^1.1.0",
-    "standard": "^2.4.4"
+    "standard": "^2.4.4",
+    "zuul": "^1.17.1"
   },
   "scripts": {
-    "test": "standard"
+    "test": "zuul -- spec/spec.js"
   },
   "keywords": [
     "contentEditable",
