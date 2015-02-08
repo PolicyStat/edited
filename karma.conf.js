@@ -61,6 +61,34 @@ var customLaunchers = {
   safari5: {
     browserName: 'safari',
     version: '5'
+  },
+  iphone8_0: {
+    browserName: 'iphone',
+    version: '8.0'
+  },
+  iphone7_1: {
+    browserName: 'iphone',
+    version: '7.1'
+  },
+  iphone7_0: {
+    browserName: 'iphone',
+    version: '7.0'
+  },
+  iphone6_1: {
+    browserName: 'iphone',
+    version: '6.1'
+  },
+  iphone6_0: {
+    browserName: 'iphone',
+    version: '6.0'
+  },
+  iphone5_1: {
+    browserName: 'iphone',
+    version: '5.1'
+  },
+  iphone4_3: {
+    browserName: 'iphone',
+    version: '4.3'
   }
 }
 
