@@ -89,34 +89,6 @@ var customLaunchers = {
   iphone4_3: {
     browserName: 'iphone',
     version: '4.3'
-  },
-  ipad8_0: {
-    browserName: 'ipad',
-    version: '8.0'
-  },
-  ipad7_1: {
-    browserName: 'ipad',
-    version: '7.1'
-  },
-  ipad7_0: {
-    browserName: 'ipad',
-    version: '7.0'
-  },
-  ipad6_1: {
-    browserName: 'ipad',
-    version: '6.1'
-  },
-  ipad6_0: {
-    browserName: 'ipad',
-    version: '6.0'
-  },
-  ipad5_1: {
-    browserName: 'ipad',
-    version: '5.1'
-  },
-  ipad4_3: {
-    browserName: 'ipad',
-    version: '4.3'
   }
 }
 
