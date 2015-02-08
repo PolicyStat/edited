@@ -13,8 +13,8 @@
 [![Dependency Status](https://img.shields.io/david/mightyiam/on-text-content-edit.svg)](https://david-dm.org/mightyiam/on-text-content-edit)
 [![Dev Dependency Status](https://img.shields.io/david/dev/mightyiam/on-text-content-edit.svg)](https://david-dm.org/mightyiam/on-text-content-edit#info=devDependencies)<br/>
 [![Gratipay donate button](https://img.shields.io/gratipay/mightyiam.svg)](https://www.gratipay.com/mightyiam/ "Donate weekly to this project using Gratipay")
-[![Flattr donate button](https://img.shields.io/badge/flattr-donate-yellow.svg)](http://flattr.com/thing/mightyiam "Donate monthly to this project using Flattr")
-[![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GESHXDNW64PMG "Donate once-off to this project using Paypal")
+[![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RAKMT86PEJWGC "Donate once-off to this project using Paypal")
+[![BitCoin donate button](https://img.shields.io/badge/bitcoin-donate-yellow.svg)](https://www.coinbase.com/checkouts/d7a8160dbfe9f9779ee31005dbc34294?c=opensource "Donate once-off to this project using BitCoin")
 [![Wishlist browse button](https://img.shields.io/badge/wishlist-donate-yellow.svg)](http://amzn.com/w/3W0TRAPGDI8DA "Buy an item on our wishlist for us")
 
 <!-- /BADGES -->
