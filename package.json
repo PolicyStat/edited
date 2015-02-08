@@ -23,7 +23,7 @@
     "standard": "^2.4.4"
   },
   "scripts": {
-    "test": "standard"
+    "test": "zuul -- spec/spec.js"
   },
   "keywords": [
     "contentEditable",
