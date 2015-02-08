@@ -1,14 +1,18 @@
 // Karma configuration
 // Generated on Mon Jan 12 2015 17:57:20 GMT+0200 (IST)
+var forEach = require('forEach')
 
 var specFile = 'spec/spec.js'
 
 var customLaunchers = {
   chrome: {
-    base: 'SauceLabs',
     browserName: 'chrome'
   }
 }
+
+forEach(customLaunchers, function(launcher) {
+  launcher.base = 'SauceLabs'
+})
 
 module.exports = function(config) {
   var confObject = {
