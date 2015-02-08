@@ -1,5 +1,5 @@
 {
-  "name": "text-edit-discern",
+  "name": "on-text-content-edit",
   "version": "1.0.0",
   "description": "",
   "main": "lib/TextEditDiscern/index.js",
