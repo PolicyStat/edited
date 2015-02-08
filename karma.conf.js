@@ -46,6 +46,10 @@ var customLaunchers = {
     browserName: 'internet explorer',
     version: '11'
   },
+  safari8: {
+    browserName: 'safari',
+    version: '8'
+  },
   safari7: {
     browserName: 'safari',
     version: '7'
