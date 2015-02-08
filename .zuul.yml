@@ -1,0 +1,16 @@
+ui: jasmine
+browsers:
+  - name: chrome
+    version: latest
+  - name: firefox
+    version: latest
+  - name: opera
+    version: latest
+  - name: ie
+    version: 7..latest
+  - name: android
+    version: latest
+  - name: iphone
+    version: latest
+  - name: safari
+    version: latest
