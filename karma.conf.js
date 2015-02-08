@@ -1,6 +1,6 @@
 // Karma configuration
 // Generated on Mon Jan 12 2015 17:57:20 GMT+0200 (IST)
-var forEach = require('forEach')
+var forEach = require('foreach')
 
 var specFile = 'spec/spec.js'
 
