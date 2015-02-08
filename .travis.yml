@@ -5,3 +5,5 @@ env:
   global:
   - secure: ZYUzLLlqr1rseBQbsd8VQQedQsHUFUuD7xeagu3G11J+Sq+fC6FRyjQcVW3VfiWUxM2Z4H82ShAUEARcoPCy9AAGpn9LyYqH9FNQLOhS9XZFRoxm3jCgLnlTnO9hsPvl9gT5S3pawHmankd04VEwOnEZFSGLWywcZ/sjssMHoB4=
   - secure: LCfU4PlhTGs1Boh00AJg0ZcSVNPrrZctKhtiPggJH50LagjhIS8G9TE+vAoVMJQa9gJa8U+8DCsexf0rAtcLCnY2K7QI8LYVOJ9tx2fVi8K2bxBy2V3axVn4VFBPpmg5YLMUtzzlZd4/nA8YjGc+MadNVVAWRayQydpb1DH9REQ=
+before_install:
+  - "npm i -g karma-cli"
