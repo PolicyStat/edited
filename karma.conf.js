@@ -3,6 +3,13 @@
 
 var specFile = 'spec/spec.js'
 
+var customLaunchers = {
+  chrome: {
+    base: 'SauceLabs',
+    browserName: 'chrome'
+  }
+}
+
 module.exports = function(config) {
   var confObject = {
 
@@ -58,11 +65,13 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [],
+    browsers: Object.keys(customLaunchers),
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    customLaunchers: customLaunchers,
+
+    sauceLabs: {
+      testName: 'edited'
+    }
   }
 
   confObject.preprocessors[specFile] = ['browserify']
