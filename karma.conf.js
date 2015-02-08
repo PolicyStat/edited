@@ -7,7 +7,19 @@ var specFile = 'spec/spec.js'
 var customLaunchers = {
   chrome: {
     browserName: 'chrome'
-  }
+  },
+  ie9: {
+    browserName: 'internet explorer',
+    version: '9'
+  },
+  ie10: {
+    browserName: 'internet explorer',
+    version: '10'
+  },
+  ie11: {
+    browserName: 'internet explorer',
+    version: '11'
+  },
 }
 
 forEach(customLaunchers, function(launcher) {
