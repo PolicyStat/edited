@@ -8,6 +8,12 @@ var customLaunchers = {
   chrome: {
     browserName: 'chrome'
   },
+  firefox: {
+    browserName: 'firefox'
+  },
+  opera: {
+    browserName: 'opera'
+  },
   ie9: {
     browserName: 'internet explorer',
     version: '9'
