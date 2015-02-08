@@ -1,17 +1,17 @@
 
 <!-- TITLE/ -->
 
-# on-text-content-edit
+# edited
 
 <!-- /TITLE -->
 
 
 <!-- BADGES/ -->
 
-[![NPM version](https://img.shields.io/npm/v/on-text-content-edit.svg)](https://npmjs.org/package/on-text-content-edit "View this project on NPM")
-[![NPM downloads](https://img.shields.io/npm/dm/on-text-content-edit.svg)](https://npmjs.org/package/on-text-content-edit "View this project on NPM")
-[![Dependency Status](https://img.shields.io/david/mightyiam/on-text-content-edit.svg)](https://david-dm.org/mightyiam/on-text-content-edit)
-[![Dev Dependency Status](https://img.shields.io/david/dev/mightyiam/on-text-content-edit.svg)](https://david-dm.org/mightyiam/on-text-content-edit#info=devDependencies)<br/>
+[![NPM version](https://img.shields.io/npm/v/edited.svg)](https://npmjs.org/package/edited "View this project on NPM")
+[![NPM downloads](https://img.shields.io/npm/dm/edited.svg)](https://npmjs.org/package/edited "View this project on NPM")
+[![Dependency Status](https://img.shields.io/david/mightyiam/edited.svg)](https://david-dm.org/mightyiam/edited)
+[![Dev Dependency Status](https://img.shields.io/david/dev/mightyiam/edited.svg)](https://david-dm.org/mightyiam/edited#info=devDependencies)<br/>
 [![Gratipay donate button](https://img.shields.io/gratipay/mightyiam.svg)](https://www.gratipay.com/mightyiam/ "Donate weekly to this project using Gratipay")
 [![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RAKMT86PEJWGC "Donate once-off to this project using Paypal")
 [![BitCoin donate button](https://img.shields.io/badge/bitcoin-donate-yellow.svg)](https://www.coinbase.com/checkouts/d7a8160dbfe9f9779ee31005dbc34294?c=opensource "Donate once-off to this project using BitCoin")
@@ -46,17 +46,17 @@ integration and I’ll mention it here.
 ## Install
 
 ### [NPM](http://npmjs.org/)
-- Use: `require('on-text-content-edit')`
-- Install: `npm install --save on-text-content-edit`
+- Use: `require('edited')`
+- Install: `npm install --save edited`
 
 ### [Browserify](http://browserify.org/)
-- Use: `require('on-text-content-edit')`
-- Install: `npm install --save on-text-content-edit`
-- CDN URL: `//wzrd.in/bundle/on-text-content-edit@1.0.0`
+- Use: `require('edited')`
+- Install: `npm install --save edited`
+- CDN URL: `//wzrd.in/bundle/edited@1.0.0`
 
 ### [Ender](http://ender.jit.su/)
-- Use: `require('on-text-content-edit')`
-- Install: `ender add on-text-content-edit`
+- Use: `require('edited')`
+- Install: `ender add edited`
 
 <!-- /INSTALL -->
 

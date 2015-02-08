@@ -1,5 +1,5 @@
 {
-  "name": "on-text-content-edit",
+  "name": "edited",
   "version": "1.0.0",
   "description": "Listens on an editable element and calls a provided callback when it\ndiscerns that a reasonable change was made.",
   "main": "lib/TextEditDiscern/index.js",

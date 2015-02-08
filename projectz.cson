@@ -1,8 +1,8 @@
 {
-    title: "on-text-content-edit"
-    name: "on-text-content-edit"
+    title: "edited"
+    name: "edited"
 
-    repo: "mightyiam/on-text-content-edit"
+    repo: "mightyiam/edited"
 
     description: '''
         Listens on an editable element and calls a provided callback when it
