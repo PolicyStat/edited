@@ -1,0 +1,25 @@
+{
+    title: "on-text-content-edit"
+    name: "on-text-content-edit"
+
+    repo: "mightyiam/on-text-content-edit"
+
+    description: '''
+        Listens on an editable element and calls a provided callback when it
+        discerns that a reasonable change was made.
+        '''
+
+    keywords: "contentEditable, designMode, undo, redo"
+
+    author: "Shahar Or (http://github.com/mightyiam)"
+
+    license: "MIT"
+
+    browsers: true
+
+    badges:
+        gittip: "mightyiam"
+        flattr: "mightyiam"
+        paypal: "GESHXDNW64PMG"
+        wishlist: "http://amzn.com/w/3W0TRAPGDI8DA"
+}

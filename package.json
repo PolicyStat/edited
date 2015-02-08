@@ -1,11 +1,8 @@
 {
   "name": "on-text-content-edit",
   "version": "1.0.0",
-  "description": "",
+  "description": "Listens on an editable element and calls a provided callback when it\ndiscerns that a reasonable change was made.",
   "main": "lib/TextEditDiscern/index.js",
-  "directories": {
-    "test": "test"
-  },
   "dependencies": {
     "add-event-handler": "^1.0.0",
     "keycode": "^1.0.0",
@@ -21,6 +18,7 @@
     "karma-browserify": "^3.0.1",
     "karma-jasmine": "^0.3.4",
     "keysim": "^1.1.2",
+    "projectz": "^0.3.17",
     "randomatic": "^1.1.0",
     "standard": "^2.4.4"
   },
@@ -28,9 +26,22 @@
     "test": "standard"
   },
   "keywords": [
-    "browser",
-    "text-edit"
+    "contentEditable",
+    " designMode",
+    " undo",
+    " redo"
   ],
-  "author": "Shahar Or <mightyiampresence@gmail.com>",
-  "license": "ISC"
+  "author": "Shahar Or (http://github.com/mightyiam)",
+  "license": {
+    "type": "MIT"
+  },
+  "maintainers": [
+    ""
+  ],
+  "contributors": [
+    "mightyiam (https://github.com/mightyiam)"
+  ],
+  "bugs": {
+    "url": "https://github.com/mightyiam/text-edit-discern/issues"
+  }
 }
