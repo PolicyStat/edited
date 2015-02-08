@@ -78,6 +78,11 @@ onTCC.detach() // and it will stop listening
 The callbacks are called synchronously, before the native event (the edit)
 occurs.
 
+The callbacks are called with the instance as `this`.
+
+The provided editable element can be accessed as the `element` property of
+the instance.
+
 <!-- LICENSE/ -->
 
 ## License
