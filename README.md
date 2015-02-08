@@ -41,7 +41,6 @@ This could be useful for registering undo/redo points, resource–friendlier
 autosaves and probably more. Register an issue describing your
 integration and I’ll mention it here.
 
-
 <!-- INSTALL/ -->
 
 ## Install
@@ -75,6 +74,9 @@ var onTCC = new OnTCC(contentEditableElement, cb)
 // benefit ... and in case you don’t require it any more
 onTCC.detach() // and it will stop listening
 ```
+
+The callbacks are called synchronously, before the native event (the edit)
+occurs.
 
 <!-- LICENSE/ -->
 
