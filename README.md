@@ -71,7 +71,9 @@ var cb = function() {
 
 var onTCC = new OnTCC(contentEditableElement, cb)
 
-// benefit ... and in case you don’t require it any more
+// benefit!
+
+// in case you don’t require it any more
 onTCC.detach() // and it will stop listening
 ```
 
