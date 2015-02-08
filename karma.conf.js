@@ -5,6 +5,26 @@ var forEach = require('foreach')
 var specFile = 'spec/spec.js'
 
 var customLaunchers = {
+  android4_4: {
+    browserName: 'android',
+    version: '4.4'
+  },
+  android4_3: {
+    browserName: 'android',
+    version: '4.3'
+  },
+  android4_2: {
+    browserName: 'android',
+    version: '4.2'
+  },
+  android4_1: {
+    browserName: 'android',
+    version: '4.1'
+  },
+  android4_0: {
+    browserName: 'android',
+    version: '4.0'
+  },
   chrome: {
     browserName: 'chrome'
   },
