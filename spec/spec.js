@@ -36,13 +36,13 @@ var editTypes = {
     }
   },
   forwardRemoval: {
-    triggerFunc: function () {
+    triggerFunc: function() {
       var self = this
       press(self.element, 'delete')
     }
   },
   space: {
-    triggerFunc: function () {
+    triggerFunc: function() {
       var self = this
       press(self.element, ' ')
     }
@@ -56,14 +56,14 @@ var editTypes = {
   paste: {
     // consecutive events of this type each trigger call back
     callsBackOnConsecutive: true,
-    triggerFunc: function () {
+    triggerFunc: function() {
       var self = this
       emit(self.element, 'paste')
     }
   },
   drop: {
     callsBackOnConsecutive: true,
-    triggerFunc: function () {
+    triggerFunc: function() {
       var self = this
       emit(self.element, 'drop')
     }
