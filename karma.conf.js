@@ -46,6 +46,18 @@ var customLaunchers = {
     browserName: 'internet explorer',
     version: '11'
   },
+  safari7: {
+    browserName: 'safari',
+    version: '7'
+  },
+  safari6: {
+    browserName: 'safari',
+    version: '6'
+  },
+  safari5: {
+    browserName: 'safari',
+    version: '5'
+  }
 }
 
 forEach(customLaunchers, function(launcher) {
