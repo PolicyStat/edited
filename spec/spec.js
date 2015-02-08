@@ -47,6 +47,12 @@ var editTypes = {
       press(self.element, ' ')
     }
   },
+  enter: {
+    triggerFunc: function() {
+      var self = this
+      press(self.element, 'enter')
+    }
+  },
   paste: {
     // consecutive events of this type each trigger call back
     callsBackOnConsecutive: true,
