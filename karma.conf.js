@@ -1,7 +1,100 @@
 // Karma configuration
 // Generated on Mon Jan 12 2015 17:57:20 GMT+0200 (IST)
+var forEach = require('foreach')
 
 var specFile = 'spec/spec.js'
+
+var customLaunchers = {
+  android4_4: {
+    browserName: 'android',
+    version: '4.4'
+  },
+  //android4_3: {
+    //browserName: 'android',
+    //version: '4.3'
+  //},
+  //android4_2: {
+    //browserName: 'android',
+    //version: '4.2'
+  //},
+  //android4_1: {
+    //browserName: 'android',
+    //version: '4.1'
+  //},
+  //android4_0: {
+    //browserName: 'android',
+    //version: '4.0'
+  //},
+  chrome: {
+    browserName: 'chrome'
+  },
+  firefox: {
+    browserName: 'firefox'
+  },
+  opera: {
+    browserName: 'opera'
+  },
+  ie9: {
+    browserName: 'internet explorer',
+    version: '9'
+  },
+  ie10: {
+    browserName: 'internet explorer',
+    version: '10'
+  },
+  ie11: {
+    browserName: 'internet explorer',
+    version: '11'
+  },
+  safari8: {
+    browserName: 'safari',
+    version: '8'
+  },
+  //safari7: {
+    //browserName: 'safari',
+    //version: '7'
+  //},
+  //safari6: {
+    //browserName: 'safari',
+    //version: '6'
+  //},
+  //safari5: {
+    //browserName: 'safari',
+    //version: '5'
+  //},
+  iphone8_0: {
+    browserName: 'iphone',
+    version: '8.0'
+  },
+  iphone7_1: {
+    browserName: 'iphone',
+    version: '7.1'
+  }
+  //iphone7_0: {
+    //browserName: 'iphone',
+    //version: '7.0'
+  //},
+  //iphone6_1: {
+    //browserName: 'iphone',
+    //version: '6.1'
+  //},
+  //iphone6_0: {
+    //browserName: 'iphone',
+    //version: '6.0'
+  //},
+  //iphone5_1: {
+    //browserName: 'iphone',
+    //version: '5.1'
+  //},
+  //iphone4_3: {
+    //browserName: 'iphone',
+    //version: '4.3'
+  //}
+}
+
+forEach(customLaunchers, function(launcher) {
+  launcher.base = 'SauceLabs'
+})
 
 module.exports = function(config) {
   var confObject = {
@@ -41,7 +134,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['dots'],
 
     // web server port
     port: 9876,
@@ -58,11 +151,13 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [],
+    browsers: Object.keys(customLaunchers),
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    customLaunchers: customLaunchers,
+
+    sauceLabs: {
+      testName: 'edited'
+    }
   }
 
   confObject.preprocessors[specFile] = ['browserify']

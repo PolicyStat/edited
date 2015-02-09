@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "0.10"
+env:
+  global:
+  - secure: OLB3N21ivRV61tEVa3XgVml8H9uiKS+4aCU8+3ggNLe0vEfj7D8GHqxnb59+Yx5oAD89y2aPXWUpXEFsl4IMF6ev20xa3xiBmVCwqmiGMFAu8GjUx54qC9t5ZrKZRZn+GwRMVlQdiGSwdCk+OFXb2TevbCuG9S+P06W11YMDZ5o=
+  - secure: Cl40rPmO4xETuH/9r5J/X9VDc4a7LlA1refwQGXy53z55Nkb/Su6uPD1DqINMZzHyYphMNTviqP44PE4g6xqC9PcyzktpPFeg1AIbfZ1JSi/tqGwL0JO1pLiG7LFR4ohevRVelbAs3mtqHnVgn9pdtwWiU4z9DWvqZYqBC/xLTI=
+before_install:
+  - "npm i -g karma-cli"

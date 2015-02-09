@@ -17,13 +17,14 @@
     "karma": "^0.12.31",
     "karma-browserify": "^3.0.1",
     "karma-jasmine": "^0.3.4",
+    "karma-sauce-launcher": "^0.2.10",
     "keysim": "^1.1.2",
     "projectz": "^0.3.17",
     "randomatic": "^1.1.0",
     "standard": "^2.4.4"
   },
   "scripts": {
-    "test": "standard"
+    "test": "karma start --single-run"
   },
   "keywords": [
     "contentEditable",
