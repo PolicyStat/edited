@@ -48,7 +48,7 @@ determined that a sensible edit was made and the provided callback is
 fired.
 
 Also, for edit types paste and drop, each consecutive edit is determined
-a sensible edit.
+a significant edit.
 
 Makes sense?
 
