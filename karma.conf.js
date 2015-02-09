@@ -9,22 +9,22 @@ var customLaunchers = {
     browserName: 'android',
     version: '4.4'
   },
-  android4_3: {
-    browserName: 'android',
-    version: '4.3'
-  },
-  android4_2: {
-    browserName: 'android',
-    version: '4.2'
-  },
-  android4_1: {
-    browserName: 'android',
-    version: '4.1'
-  },
-  android4_0: {
-    browserName: 'android',
-    version: '4.0'
-  },
+  //android4_3: {
+    //browserName: 'android',
+    //version: '4.3'
+  //},
+  //android4_2: {
+    //browserName: 'android',
+    //version: '4.2'
+  //},
+  //android4_1: {
+    //browserName: 'android',
+    //version: '4.1'
+  //},
+  //android4_0: {
+    //browserName: 'android',
+    //version: '4.0'
+  //},
   chrome: {
     browserName: 'chrome'
   },
@@ -50,18 +50,18 @@ var customLaunchers = {
     browserName: 'safari',
     version: '8'
   },
-  safari7: {
-    browserName: 'safari',
-    version: '7'
-  },
-  safari6: {
-    browserName: 'safari',
-    version: '6'
-  },
-  safari5: {
-    browserName: 'safari',
-    version: '5'
-  },
+  //safari7: {
+    //browserName: 'safari',
+    //version: '7'
+  //},
+  //safari6: {
+    //browserName: 'safari',
+    //version: '6'
+  //},
+  //safari5: {
+    //browserName: 'safari',
+    //version: '5'
+  //},
   iphone8_0: {
     browserName: 'iphone',
     version: '8.0'
@@ -69,27 +69,27 @@ var customLaunchers = {
   iphone7_1: {
     browserName: 'iphone',
     version: '7.1'
-  },
-  iphone7_0: {
-    browserName: 'iphone',
-    version: '7.0'
-  },
-  iphone6_1: {
-    browserName: 'iphone',
-    version: '6.1'
-  },
-  iphone6_0: {
-    browserName: 'iphone',
-    version: '6.0'
-  },
-  iphone5_1: {
-    browserName: 'iphone',
-    version: '5.1'
-  },
-  iphone4_3: {
-    browserName: 'iphone',
-    version: '4.3'
   }
+  //iphone7_0: {
+    //browserName: 'iphone',
+    //version: '7.0'
+  //},
+  //iphone6_1: {
+    //browserName: 'iphone',
+    //version: '6.1'
+  //},
+  //iphone6_0: {
+    //browserName: 'iphone',
+    //version: '6.0'
+  //},
+  //iphone5_1: {
+    //browserName: 'iphone',
+    //version: '5.1'
+  //},
+  //iphone4_3: {
+    //browserName: 'iphone',
+    //version: '4.3'
+  //}
 }
 
 forEach(customLaunchers, function(launcher) {
