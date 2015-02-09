@@ -5,6 +5,7 @@
 
 <!-- /TITLE -->
 
+Should work in all ES5 browsers and in shimmed IE7&8.
 
 <!-- BADGES/ -->
 
