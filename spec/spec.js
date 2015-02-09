@@ -4,6 +4,9 @@
 // set to true for some `console.log`ging
 var debug = false
 
+// ES5 shim
+require('es5-shim')
+
 // external modules
 var TextEditDiscern = require('..')
 var keyboard = require('keysim').Keyboard.US_ENGLISH
