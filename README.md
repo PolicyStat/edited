@@ -5,6 +5,7 @@
 
 <!-- /TITLE -->
 
+Should work in all ES5 browsers and in shimmed IE7&8.
 
 <!-- BADGES/ -->
 
@@ -76,18 +77,18 @@ integration and I’ll mention it here).
 
 ## Usage
 ``` javascript
-var OnTCC = require(‘on-text-content-change’)
+var Edited = require(‘edited’)
 
 var cb = function() {
     // register undo point, autosave, etc
 }
 
-var onTCC = new OnTCC(contentEditableElement, cb)
+var edited = new Edited(someEditableElement, cb)
 
 // benefit!
 
 // in case you don’t require it any more
-onTCC.detach() // and it will stop listening
+edited.detach() // and it will stop listening
 ```
 
 The callbacks are called synchronously, before the native event (the edit)
