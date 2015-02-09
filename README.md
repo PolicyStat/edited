@@ -22,24 +22,37 @@
 
 <!-- DESCRIPTION/ -->
 
-Listens on an editable element and calls a provided callback when it
-discerns that a reasonable change was made.
+Listens on editable elements and calls a provided callback when it
+discerns that a sensible edit was made.
 
 <!-- /DESCRIPTION -->
 
 
 ## How does it work?
-It listens on the events that could possibly make changes on the
-provided element and determines their type. Some possible types are
-character addition, backward deletion, forward deletion, enter, paste
-and drop.
+It listens on the events that could possibly be edits on the
+provided element and determines their edit type.
 
-When the last event type is different than the previous, then it is
-determined that a change was made and the provided callback is fired.
+Edit types are:
+* Character addition
+* Backward deletion
+* Forward deletion
+* Space
+* Enter
+* Paste
+* Drop
 
-This could be useful for registering undo/redo points, resource–friendlier
-autosaves and probably more. Register an issue describing your
-integration and I’ll mention it here.
+When the last edit type is different than the previous, then it is
+determined that a sensible edit was made and the provided callback is
+fired.
+
+Also, for edit types paste and drop, each consecutive edit is determined
+a sensible edit.
+
+Makes sense?
+
+This may be useful for registering undo/redo points, resource–friendlier
+autosaves and probably more (register an issue describing your
+integration and I’ll mention it here).
 
 <!-- INSTALL/ -->
 
