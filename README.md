@@ -5,8 +5,7 @@
 
 <!-- /TITLE -->
 
-Should work in all ES5 browsers and in shimmed IE7&8.
-
+Should work in all ES5 browsers and in shimmed IE7&8. Not widely tested [yet](https://github.com/mightyiam/edited/issues/3).
 <!-- BADGES/ -->
 
 [![NPM version](https://img.shields.io/npm/v/edited.svg)](https://npmjs.org/package/edited "View this project on NPM")
