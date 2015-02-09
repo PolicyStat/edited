@@ -68,7 +68,7 @@ integration and I’ll mention it here).
 - Install: `npm install --save edited`
 - CDN URL: `//wzrd.in/bundle/edited@1.0.0`
 
-### [Ender](http://ender.jit.su/)
+### [Ender](http://enderjs.com)
 - Use: `require('edited')`
 - Install: `ender add edited`
 
