@@ -23,7 +23,7 @@ Should work in all ES5 browsers and in shimmed IE7&8. Not widely tested [yet](ht
 <!-- DESCRIPTION/ -->
 
 Listens on editable elements and calls a provided callback when it
-discerns that a sensible edit was made.
+discerns that a significant edit was made.
 
 <!-- /DESCRIPTION -->
 

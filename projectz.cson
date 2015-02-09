@@ -5,8 +5,8 @@
     repo: "mightyiam/edited"
 
     description: '''
-        Listens on an editable element and calls a provided callback when it
-        discerns that a reasonable change was made.
+        Listens on editable elements and calls a provided callback when it
+        discerns that a significant edit was made.
         '''
 
     keywords: "contentEditable, designMode, undo, redo"
