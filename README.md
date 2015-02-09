@@ -8,6 +8,7 @@
 Should work in all ES5 browsers and in shimmed IE7&8. Not widely tested [yet](https://github.com/mightyiam/edited/issues/3).
 <!-- BADGES/ -->
 
+[![Build Status](https://img.shields.io/travis/mightyiam/edited/master.svg)](http://travis-ci.org/mightyiam/edited "Check this project's build status on TravisCI")
 [![NPM version](https://img.shields.io/npm/v/edited.svg)](https://npmjs.org/package/edited "View this project on NPM")
 [![NPM downloads](https://img.shields.io/npm/dm/edited.svg)](https://npmjs.org/package/edited "View this project on NPM")
 [![Dependency Status](https://img.shields.io/david/mightyiam/edited.svg)](https://david-dm.org/mightyiam/edited)
