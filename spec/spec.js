@@ -8,7 +8,7 @@ var debug = false
 require('es5-shim')
 
 // external modules
-var TextEditDiscern = require('..')
+var Edited = require('..')
 var keyboard = require('keysim').Keyboard.US_ENGLISH
 var emit = require('dom-events').emit
 var randomChars = require('randomatic')
@@ -95,26 +95,26 @@ describe('Instantiation', function() {
   it('throws when not given arguments', function() {
   /* eslint no-unused-vars:0 */
     expect(function() {
-      var discern = new TextEditDiscern()
+      var edited = new Edited()
     }).toThrow()
   })
   it('throws when not given a DOM element', function() {
     expect(function() {
-      var discern = new TextEditDiscern('not a DOM element', function() {})
+      var edited = new Edited('not a DOM element', function() {})
     }).toThrow()
   })
   it('throws when not given a callback', function() {
     expect(function() {
       var element = makeEditableElement()
-      var discern = new TextEditDiscern(element, 12412)
+      var edited = new Edited(element, 12412)
     }).toThrow()
   })
   /* eslint no-unused-vars:1 */
   it('instantiates on an element and does not callback initially', function() {
     var spy = jasmine.createSpy()
     var element = makeEditableElement()
-    var discern = new TextEditDiscern(element, spy)
-    expect(discern instanceof TextEditDiscern).toBe(true)
+    var edited = new Edited(element, spy)
+    expect(edited instanceof Edited).toBe(true)
     expect(spy).not.toHaveBeenCalled()
   })
 })
@@ -130,15 +130,15 @@ describe('`detach` method', function() {
       callbackCalled++
     }
 
-    var discern = new TextEditDiscern(element, callback)
+    var edited = new Edited(element, callback)
 
     // just checking that the callback works
-    editTypes.space.triggerFunc.call(discern)
+    editTypes.space.triggerFunc.call(edited)
     expect(callbackCalled).toEqual(1)
 
     // checking that `detach` method works
-    discern.detach()
-    editTypes.backwardsRemoval.triggerFunc.call(discern)
+    edited.detach()
+    editTypes.backwardsRemoval.triggerFunc.call(edited)
     expect(callbackCalled).toEqual(1)
   })
 })
@@ -203,12 +203,12 @@ var instantiateTriggerAndAssert = function(
   var cb = genCallback(expectedCbCount)
 
   var element = makeEditableElement()
-  var discern = new TextEditDiscern(element, cb)
+  var edited = new Edited(element, cb)
 
   // trigger the former and the latter according to the provided sequence
   triggerSeq.split('').forEach(function(c) {
     var formerOrLatter = (c === 'F') ? former : latter
-    formerOrLatter.triggerFunc.call(discern)
+    formerOrLatter.triggerFunc.call(edited)
   })
 }
 
