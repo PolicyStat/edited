@@ -67,7 +67,7 @@ integration and I’ll mention it here).
 ### [Browserify](http://browserify.org/)
 - Use: `require('edited')`
 - Install: `npm install --save edited`
-- CDN URL: `//wzrd.in/bundle/edited@1.0.2`
+- CDN URL: `//wzrd.in/bundle/edited@1.0.3`
 
 ### [Ender](http://enderjs.com)
 - Use: `require('edited')`
