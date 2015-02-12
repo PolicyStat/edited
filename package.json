@@ -21,6 +21,7 @@
     "standard": "^2.4.4"
   },
   "scripts": {
+    "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "test": "standard"
   },
   "keywords": [
@@ -41,5 +42,10 @@
   ],
   "bugs": {
     "url": "https://github.com/mightyiam/edited/issues"
+  },
+  "standard": {
+    "ignore": [
+      "**/*.br.js"
+    ]
   }
 }
