@@ -12,6 +12,7 @@
     "dom-events": "^0.1.1",
     "es5-shim": "^4.1.0",
     "foreach": "^2.0.5",
+    "intern-geezer": "^2.2.2",
     "isnode": "0.0.1",
     "jsdom": "^3.1.0",
     "keysim": "^1.1.2",
