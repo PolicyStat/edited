@@ -12,7 +12,11 @@ define({
     {browserName: 'internet explorer', version: ['7', '8', '9', '10', '11']},
     {browserName: 'safari'},
     {browserName: 'opera'},
-    {browserName: 'android'},
+    {
+      browserName: 'android',
+      deviceName: 'Android Emulator',
+      version: ['4.0', '4.1', '4.2', '4.3', '4.4']
+    },
     {browserName: 'iphone'}
   ]
 })
