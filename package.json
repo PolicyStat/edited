@@ -24,7 +24,7 @@
   },
   "scripts": {
     "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
-    "test": "standard"
+    "lint": "standard",
   },
   "keywords": [
     "contentEditable",
