@@ -25,7 +25,7 @@
   "scripts": {
     "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "lint": "standard",
-    "intern": "intern-runner config=test/intern.js",
+    "intern": "intern-runner config=test/intern",
     "test": "npm run lint && npm run browserify-test && npm run intern"
   },
   "keywords": [
