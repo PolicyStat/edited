@@ -6,6 +6,10 @@ define({
 
   tunnel: 'SauceLabsTunnel',
 
+  capabilities: {
+    'idle-timeout': 320
+  },
+
   environments: [
     {browserName: 'chrome'},
     {browserName: 'firefox'},
