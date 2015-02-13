@@ -6,7 +6,8 @@
 <!-- /TITLE -->
 
 
-Should work in all ES5 browsers and in shimmed IE7&8. Not widely tested [yet](https://github.com/mightyiam/edited/issues/3).
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/edited.svg)](https://saucelabs.com/u/edited)
+
 <!-- BADGES/ -->
 
 [![Build Status](https://img.shields.io/travis/mightyiam/edited/master.svg)](http://travis-ci.org/mightyiam/edited "Check this project's build status on TravisCI")
