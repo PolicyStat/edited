@@ -6,10 +6,6 @@ define({
 
   tunnel: 'SauceLabsTunnel',
 
-  capabilities: {
-    'selenium-version': '2.41.0'
-  },
-
   environments: [
     {browserName: 'chrome'},
     {browserName: 'firefox'},
