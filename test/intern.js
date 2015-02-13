@@ -2,5 +2,11 @@
 define({
   suites: [ 'test/test' ],
 
-  excludeInstrumentation: /^(?:test|node_modules)\//
+  excludeInstrumentation: /^(?:test|node_modules)\//,
+
+  tunnel: 'SauceLabsTunnel',
+
+  environments: [
+    {browserName: 'chrome'}
+  ]
 })
