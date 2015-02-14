@@ -17,16 +17,21 @@
     "isnode": "0.0.1",
     "jsdom": "^3.1.0",
     "keysim": "^1.1.2",
+    "npm-watch": "0.0.0",
     "projectz": "^0.4.2",
     "randomatic": "^1.1.0",
     "sinon": "^1.12.2",
     "standard": "^2.4.4"
   },
   "scripts": {
+    "watch": "npm-watch",
     "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "lint": "standard",
     "intern": "intern-runner config=test/intern",
     "test": "npm run lint && npm run browserify-test && npm run intern"
+  },
+  "watch": {
+    "test": "**/!(*br.js)"
   },
   "keywords": [
     "contentEditable",
