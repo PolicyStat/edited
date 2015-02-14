@@ -19,6 +19,7 @@
     "keysim": "^1.1.2",
     "projectz": "^0.4.2",
     "randomatic": "^1.1.0",
+    "selenium-server": "^2.44.0",
     "sinon": "^1.12.2",
     "standard": "^2.4.4"
   },
@@ -26,6 +27,7 @@
     "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "lint": "standard",
     "intern": "intern-runner config=test/intern",
+    "test-local": "selenium -p 4444 && intern-runner config=test/intern local=true",
     "test-sauce": "npm run lint && npm run browserify-test && npm run intern",
   },
   "keywords": [

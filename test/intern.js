@@ -1,26 +1,30 @@
 /* eslint-env amd */
-define({
-  suites: ['test/test'],
+define(['intern'], function(intern) {
+  var local = intern.args.local
 
-  excludeInstrumentation: /^(?:test|node_modules)\//,
+  return {
+    suites: ['test/test'],
 
-  tunnel: 'SauceLabsTunnel',
+    excludeInstrumentation: /^(?:test|node_modules)\//,
 
-  capabilities: {
-    'idle-timeout': 320
-  },
+    tunnel: local ? 'NullTunnel' : 'SauceLabsTunnel',
 
-  environments: [
-    {browserName: 'chrome'},
-    {browserName: 'firefox'},
-    {browserName: 'internet explorer', version: ['7', '8', '9', '10', '11']},
-    {browserName: 'safari'},
-    {browserName: 'opera'},
-    {
-      browserName: 'android',
-      deviceName: 'Android Emulator',
-      version: ['4.0', '4.1', '4.2', '4.3', '4.4']
+    capabilities: {
+      'idle-timeout': 320
     },
-    {browserName: 'iphone'}
-  ]
+
+    environments: local ? [{browserName: 'chrome'}] : [
+      {browserName: 'chrome'},
+      {browserName: 'firefox'},
+      {browserName: 'internet explorer', version: ['7', '8', '9', '10', '11']},
+      {browserName: 'safari'},
+      {browserName: 'opera'},
+      {
+        browserName: 'android',
+        deviceName: 'Android Emulator',
+        version: ['4.0', '4.1', '4.2', '4.3', '4.4']
+      },
+      {browserName: 'iphone'}
+    ]
+  }
 })
