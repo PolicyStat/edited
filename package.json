@@ -24,8 +24,8 @@
     "standard": "^2.4.4"
   },
   "scripts": {
-    "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "lint": "standard",
+    "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "intern": "intern-runner config=test/intern",
     "test-local": "selenium -p 4444 && intern-runner config=test/intern local=true",
     "test-sauce": "npm run lint && npm run browserify-test && npm run intern",
