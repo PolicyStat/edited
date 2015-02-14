@@ -1,6 +1,6 @@
 /* eslint-env amd */
 define({
-  suites: [ 'test/test' ],
+  suites: ['test/test'],
 
   excludeInstrumentation: /^(?:test|node_modules)\//,
 
