@@ -1,6 +1,6 @@
 /* eslint-env amd */
-define(['intern'], function(intern) {
-  var local = intern.args.local
+define(function() {
+  var local = typeof process === 'undefined' ? null : !process.env.CI
 
   return {
     suites: ['test/test'],
