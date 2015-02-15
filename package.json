@@ -24,6 +24,7 @@
     "standard": "^2.4.4"
   },
   "scripts": {
+    "manual-test": "intern-runner config=test/intern proxyOnly=true",
     "lint": "standard",
     "browserify": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "selenium-start": "if [ -z \"$CI\" ]; then selenium & echo $! > ./selenium.pid && sleep 1; fi",
