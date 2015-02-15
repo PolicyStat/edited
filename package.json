@@ -27,7 +27,7 @@
     "lint": "standard",
     "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "intern": "intern-runner config=test/intern",
-    "test-local": "selenium & sleep 1 && intern-runner config=test/intern local=true",
+    "test-local": "selenium & PID=$! && sleep 1 && intern-runner config=test/intern local=true && pkill -P $PID",
     "test-sauce": "npm run lint && npm run browserify-test && npm run intern"
   },
   "keywords": [
