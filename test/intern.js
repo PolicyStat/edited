@@ -20,7 +20,6 @@ define(function() {
       // https://github.com/mightyiam/edited/issues/7
       {browserName: 'internet explorer', version: ['9', '10', '11']},
       {browserName: 'safari', version: ['6', '7', '8']},
-      {browserName: 'opera', version: '30'},
       {
         browserName: 'android',
         deviceName: 'Android Emulator',
