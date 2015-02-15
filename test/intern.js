@@ -16,7 +16,9 @@ define(function() {
     environments: local ? [{browserName: 'chrome'}] : [
       {browserName: 'chrome'},
       {browserName: 'firefox'},
-      {browserName: 'internet explorer', version: ['7', '8', '9', '10', '11']},
+      // should test with IE 7 & 8, as well:
+      // https://github.com/mightyiam/edited/issues/7
+      {browserName: 'internet explorer', version: ['9', '10', '11']},
       {browserName: 'safari'},
       {browserName: 'opera'},
       {
