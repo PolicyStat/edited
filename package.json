@@ -25,8 +25,9 @@
   },
   "scripts": {
     "lint": "standard",
-    "browserify-test": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
-    "test-browser": "selenium & PID=$! && sleep 1 && intern-runner config=test/intern; pkill -P $PID"
+    "browserify": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
+    "test-browser": "selenium & PID=$! && sleep 1 && intern-runner config=test/intern; pkill -P $PID",
+    "test": "npm run lint && npm run browserify && npm run test-browser"
   },
   "keywords": [
     "contentEditable",
