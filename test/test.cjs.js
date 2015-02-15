@@ -204,4 +204,62 @@ module.exports = function(bdd, assert) {
       })
     })
   })
+
+  // edit type pairs for testing that key combos are ignored
+  var KeyComboPairs = [
+    [
+      // former is a key combo
+      {
+        name: 'mod+i',
+        triggerFunc: function() {
+          var self = this
+          press(self.element, 'ctrl+i')
+        }
+      },
+      // latter is a real edit type
+      editTypes.characterAddition
+    ],
+    [
+      {
+        name: 'ctrl+z',
+        triggerFunc: function() {
+          var self = this
+          press(self.element, 'ctrl+z')
+        }
+      },
+      editTypes.backwardsRemoval
+    ],
+    [
+      {
+        name: 'meta+p',
+        triggerFunc: function() {
+          var self = this
+          press(self.element, 'meta+p')
+        }
+      },
+      editTypes.backwardsRemoval
+    ],
+    [
+      {
+        name: 'alt+k',
+        triggerFunc: function() {
+          var self = this
+          press(self.element, 'alt+k')
+        }
+      },
+      editTypes.paste
+    ]
+  ]
+
+  bdd.describe('on key combo', function() {
+    forEach(KeyComboPairs, function(pair) {
+      bdd.it(pair[0].name + ' it does not call back', function() {
+        instantiateTriggerAndAssert(
+          pair,
+          'FFFLFFFFFFFLF',
+          pair[1].callsBackOnConsecutive ? 2 : 1
+        )
+      })
+    })
+  })
 }
