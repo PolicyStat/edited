@@ -24,7 +24,7 @@ define(function() {
       {
         browserName: 'android',
         deviceName: 'Android Emulator',
-        version: ['4.0', '4.1', '4.2', '4.3', '4.4']
+        version: ['4.2', '4.4']
       },
       {browserName: 'iphone'}
     ]
