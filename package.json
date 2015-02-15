@@ -28,7 +28,7 @@
     "browserify": "browserify --debug --standalone test -o test/test.br.js test/test.cjs.js",
     "selenium-start": "if [ -z \"$CI\" ]; then selenium & echo $! > ./selenium.pid && sleep 1; fi",
     "selenium-stop": "if [ -f selenium.pid ]; then xargs -a selenium.pid pkill -P && rm selenium.pid; fi",
-    "test-browser": "npm run selenium-start && intern-runner config=test/intern; npm run selenium-stop",
+    "test-browser": "npm run selenium-start && intern-runner config=test/intern; EXIT=$?; npm run selenium-stop && exit $EXIT",
     "test": "npm run lint && npm run browserify && npm run test-browser"
   },
   "keywords": [
