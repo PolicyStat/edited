@@ -108,10 +108,16 @@ module.exports = function(bdd, assert) {
         var edited = new Edited(element, 12412)
       })
     })
-    bdd.it('instantiates on an element and does not callback initially', function() {
+    bdd.it('possible on a DOM element and does not callback initially', function() {
       var spy = sinon.spy()
       var element = makeEditableElement()
       var edited = new Edited(element, spy)
+      assert.instanceOf(edited, Edited)
+      assert.strictEqual(spy.called, false)
+    })
+    bdd.it('possible on a body element', function() {
+      var spy = sinon.spy()
+      var edited = new Edited(doc.body, spy)
       assert.instanceOf(edited, Edited)
       assert.strictEqual(spy.called, false)
     })
