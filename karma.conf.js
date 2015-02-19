@@ -14,6 +14,6 @@ c.reporters = ['progress']
 c.browsers = ['Chrome', 'Firefox']
 c.singleRun = CI
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set(c)
 }
