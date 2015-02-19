@@ -8,7 +8,11 @@ c.preprocessors = {}
 c.preprocessors[SPEC_FILE_PATH] = 'browserify'
 c.browserify = {
   debug: true,
-  exclude: 'jsdom'
+  configure: function (bundle) {
+    bundle.on('prebundle', function () {
+      bundle.exclude('jsdom')
+    })
+  }
 }
 c.reporters = ['progress']
 c.browsers = ['Chrome', 'Firefox']
