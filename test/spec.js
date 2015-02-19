@@ -7,7 +7,6 @@ var debug = false
 require('es5-shim')
 
 // external modules
-var sinon = require('sinon')
 var Edited = require('..')
 var keyboard = require('keysim').Keyboard.US_ENGLISH
 var emit = require('dom-events').emit
@@ -110,17 +109,17 @@ describe('Instantiation', function () {
     }).toThrow()
   })
   it('possible on a DOM element and does not callback initially', function () {
-    var spy = sinon.spy()
+    var spy = jasmine.createSpy()
     var element = makeEditableElement()
     var edited = new Edited(element, spy)
     expect(edited instanceof Edited).toBe(true)
-    expect(spy.called).toBe(false)
+    expect(spy).not.toHaveBeenCalled()
   })
   it('possible on a body element', function () {
-    var spy = sinon.spy()
+    var spy = jasmine.createSpy()
     var edited = new Edited(doc.body, spy)
     expect(edited instanceof Edited).toBe(true)
-    expect(spy.called).toBe(false)
+    expect(spy).not.toHaveBeenCalled()
   })
 })
 /* eslint no-unused-vars:1 */
@@ -170,7 +169,7 @@ var instantiateTriggerAndAssert = function (
   var latter = testPair[1]
 
   // a spy will be the provided callback
-  var spy = sinon.spy()
+  var spy = jasmine.createSpy()
 
   var element = makeEditableElement()
   var edited = new Edited(element, spy)
@@ -181,7 +180,7 @@ var instantiateTriggerAndAssert = function (
     formerOrLatter.triggerFunc.call(edited)
   })
 
-  expect(spy.callCount).toBe(expectedCbCount)
+  expect(spy.calls.count()).toBe(expectedCbCount)
 }
 
 // iterate over the edit types and test each against each other
