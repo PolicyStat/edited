@@ -1,11 +1,10 @@
-# edited  [![Build Status](https://travis-ci.org/mightyiam/edited.svg)](https://travis-ci.org/mightyiam/edited) 
+# edited  [![Build Status](https://travis-ci.org/mightyiam/edited.svg)](https://travis-ci.org/mightyiam/edited)  [![NPM](https://nodei.co/npm/edited.png)](https://nodei.co/npm/edited/)
 
-[![NPM](https://nodei.co/npm/edited.png)](https://nodei.co/npm/edited/)
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/edited.svg)](https://saucelabs.com/u/edited)
 
 Listens on editable elements and calls a provided callback when it
 discerns that a significant edit was made.
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/edited.svg)](https://saucelabs.com/u/edited)
 
 ## How does it work?
 
