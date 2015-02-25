@@ -9,6 +9,10 @@
     "keycode": "^2.0.0",
     "is_element": "0.0.11"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mightyiam/edited.git"
+  },
   "devDependencies": {
     "es5-shim": "^4.1.0",
     "foreach": "^2.0.5",
@@ -22,15 +26,16 @@
     "karma-firefox-launcher": "^0.1.4",
     "karma-jasmine": "^0.3.5",
     "keysim": "^1.1.2",
-    "projectz": "^0.4.2",
     "randomatic": "^1.1.0",
     "selenium-server": "^2.44.0",
+    "verb-cli": "^0.4.4",
     "standard": "^2.4.4"
   },
   "scripts": {
+    "docs": "verb",
     "lint": "standard",
     "test-browsers": "karma start",
-    "test": "npm run lint && npm run test-browsers"
+    "test": "npm run docs && npm run lint && npm run test-browsers"
   },
   "keywords": [
     "contentEditable",
@@ -42,6 +47,7 @@
   "license": {
     "type": "MIT"
   },
+  "copyright": "PolicyStat LLC",
   "maintainers": [
     ""
   ],
