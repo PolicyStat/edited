@@ -138,6 +138,7 @@ describe('`detach` method', function () {
     var edited = new Edited(element, callback)
 
     // just checking that the callback works
+    editTypes.characterAddition.triggerFunc.call(edited)
     editTypes.space.triggerFunc.call(edited)
     expect(callbackCalled).toBe(1)
 
@@ -191,21 +192,21 @@ forEach(editTypeTestPairs, function (pair) {
 
   describe('(F)ormer = ' + former.name + ', ' +
     '(L)atter = ' + latter.name + ':', function () {
-    it('calls back once on F', function () {
-      instantiateTriggerAndAssert(pair, 'F', 1)
+    it('does not callback on first edit', function () {
+      instantiateTriggerAndAssert(pair, 'F', 0)
     })
 
-    it('calls back twice on F,L', function () {
-      instantiateTriggerAndAssert(pair, 'FL', 2)
+    it('calls back once on F,L', function () {
+      instantiateTriggerAndAssert(pair, 'FL', 1)
     })
 
-    it('calls back thrice on F,L,F', function () {
-      instantiateTriggerAndAssert(pair, 'FLF', 3)
+    it('calls back twice on F,L,F', function () {
+      instantiateTriggerAndAssert(pair, 'FLF', 2)
     })
 
-    it('calls back ' + (former.callsBackOnConsecutive ? '6 times' : 'thrice') +
+    it('calls back ' + (former.callsBackOnConsecutive ? '5 times' : 'twice') +
       ' on F,F,F,L,F,F', function () {
-      var times = former.callsBackOnConsecutive ? 6 : 3
+      var times = former.callsBackOnConsecutive ? 5 : 2
       instantiateTriggerAndAssert(pair, 'FFFLFF', times)
     })
   })
@@ -263,7 +264,7 @@ describe('on key combo', function () {
       instantiateTriggerAndAssert(
         pair,
         'FFFLFFFFFFFLF',
-        pair[1].callsBackOnConsecutive ? 2 : 1
+        pair[1].callsBackOnConsecutive ? 1 : 0
       )
     })
   })
