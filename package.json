@@ -22,7 +22,6 @@
     "karma-firefox-launcher": "^0.1.4",
     "karma-jasmine": "^0.3.5",
     "keysim": "^1.1.2",
-    "projectz": "^0.4.2",
     "randomatic": "^1.1.0",
     "selenium-server": "^2.44.0",
     "standard": "^2.4.4"
