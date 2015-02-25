@@ -28,6 +28,7 @@
     "keysim": "^1.1.2",
     "randomatic": "^1.1.0",
     "selenium-server": "^2.44.0",
+    "verb-cli": "^0.4.4",
     "standard": "^2.4.4"
   },
   "scripts": {
