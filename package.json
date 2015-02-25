@@ -22,15 +22,20 @@
     "karma-firefox-launcher": "^0.1.4",
     "karma-jasmine": "^0.3.5",
     "keysim": "^1.1.2",
+    "npm-watch": "0.0.0",
     "projectz": "^0.4.2",
     "randomatic": "^1.1.0",
     "selenium-server": "^2.44.0",
     "standard": "^2.4.4"
   },
   "scripts": {
+    "watch": "npm-watch",
     "lint": "standard",
     "test-browsers": "karma start",
     "test": "npm run lint && npm run test-browsers"
+  },
+  "watch": {
+    "test": "**/!(*br.js)"
   },
   "keywords": [
     "contentEditable",
