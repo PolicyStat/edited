@@ -1,5 +1,6 @@
 var auto = require('auto-package')
 var content = auto.content
+var policystat = require('policystat')
 
 content.name = 'edited'
 auto.versionFile()
@@ -13,7 +14,7 @@ content.dependencies = {
 }
 content.devDependencies = {
   mightyiam: '^1.1.5',
-  policystat: '^1.0.2',
+  policystat: '^1.1.0',
   'auto-package': '^0.2.0',
   'es5-shim': '^4.1.0',
   'foreach': '^2.0.5',
@@ -30,6 +31,7 @@ content.devDependencies = {
   'randomatic': '^1.1.0',
   'selenium-server': '^2.44.0',
   'standard': '^2.4.4',
+  'license-generator': '^0.0.13',
   'verb-cli': '^0.4.4'
 }
 content.repository = {
@@ -37,10 +39,11 @@ content.repository = {
   'url': 'http://github.com/mightyiam/edited.git'
 }
 content.scripts = {
+  'license': 'license-generator install bsd-3-clause -n "' + policystat.name.pretty + '"',
   'docs': 'verb',
   'lint': 'standard',
   'test-browsers': 'karma start',
-  'test': 'npm run docs && npm run lint && npm run test-browsers'
+  'test': 'npm run license && npm run docs && npm run lint && npm run test-browsers'
 }
 content.keywords = [
   'contentEditable',
@@ -52,4 +55,4 @@ content.author = require('mightyiam').authorStr
 content.license = {
   type: 'MIT'
 }
-content.copyright = require('policystat').copyrightNotice
+content.copyright = policystat.copyrightNotice
