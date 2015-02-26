@@ -1,6 +1,5 @@
 language: node_js
-node_js:
-  - "0.10"
+before_install: 'npm i auto-package@^0.2.0 mightyiam@^1.1.5 policystat@^1.0.2 && node package.js'
 env:
   global:
   - secure: SnpYBD6/J+Uct2LMvDWyGiUqyANrdT8cMxaocNIQenpkc2SVuK5A5PbUYRd2AkIYomjZffzdB/ljabUdXhofUZqdkHDDYDUg5/I9jUv/qO7HtMiKIgdmhKKHignvUII4G9tEm6rtpuZPZqi9XsH/lx+yMB1fGSlJfKwOpwrs3js=
