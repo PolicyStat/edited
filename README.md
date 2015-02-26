@@ -1,8 +1,7 @@
 # edited  [![Build Status](https://travis-ci.org/mightyiam/edited.svg)](https://travis-ci.org/mightyiam/edited)  [![NPM](https://nodei.co/npm/edited.png)](https://nodei.co/npm/edited/)
 
 
-Listens on editable elements and calls a provided callback when it
-discerns that a significant edit was made.
+Listens on editable elements and calls back on significant changes
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/edited.svg)](https://saucelabs.com/u/edited)
 
@@ -59,7 +58,7 @@ the instance.
 
 ## Copyright
 
-PolicyStat LLC
+Copyright © 2015 PolicyStat LLC
 
 ## License
 
