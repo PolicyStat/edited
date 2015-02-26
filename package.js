@@ -43,7 +43,7 @@ content.scripts = {
   'docs': 'verb',
   'lint': 'standard',
   'test-browsers': 'karma start',
-  'test': 'npm run docs && npm run lint && npm run test-browsers'
+  'test': 'npm run license && npm run docs && npm run lint && npm run test-browsers'
 }
 content.keywords = [
   'contentEditable',
