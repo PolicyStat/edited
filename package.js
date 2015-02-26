@@ -15,6 +15,7 @@ content.dependencies = {
 content.devDependencies = {
   mightyiam: '^1.1.5',
   policystat: '^1.1.0',
+  'policystat-sauce-browsers': '*',
   'auto-package': '^0.2.0',
   'es5-shim': '^4.1.0',
   'foreach': '^2.0.5',

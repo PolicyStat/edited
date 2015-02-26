@@ -15,7 +15,8 @@ c.browserify = {
   }
 }
 c.reporters = ['progress']
-c.browsers = ['Chrome', 'Firefox']
+c.customLaunchers = require('policystat-sauce-browsers')
+c.browsers = CI ? Object.keys(c.customLaunchers) : ['Chrome', 'Firefox']
 c.singleRun = CI
 
 module.exports = function (config) {
