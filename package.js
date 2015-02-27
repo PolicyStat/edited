@@ -25,6 +25,7 @@ content.devDependencies = {
   'karma': '^0.12.31',
   'karma-browserify': '^3.0.2',
   'karma-chrome-launcher': '^0.1.7',
+  'karma-sauce-launcher': '^0.2.10',
   'karma-cli': '0.0.4',
   'karma-firefox-launcher': '^0.1.4',
   'karma-jasmine': '^0.3.5',
