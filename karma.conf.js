@@ -15,6 +15,7 @@ c.browserify = {
   }
 }
 c.reporters = ['progress']
+if (CI) c.reporters.push('saucelabs')
 c.customLaunchers = require('policystat-sauce-browsers')
 c.browsers = CI ? Object.keys(c.customLaunchers) : ['Chrome', 'Firefox']
 c.singleRun = CI
