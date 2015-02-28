@@ -1,6 +1,7 @@
 var auto = require('auto-package')
 var content = auto.content
 var policystat = require('policystat')
+var license = policystat.openSource.license.spdx
 
 content.name = 'edited'
 auto.versionFile()
@@ -14,7 +15,7 @@ content.dependencies = {
 }
 content.devDependencies = {
   mightyiam: '^1.1.5',
-  policystat: '^1.1.0',
+  policystat: '^1.2.2',
   'policystat-sauce-browsers': '2.0.0',
   'auto-package': '^0.2.0',
   'es5-shim': '^4.1.0',
@@ -34,10 +35,11 @@ content.devDependencies = {
 }
 content.repository = {
   'type': 'git',
-  'url': 'http://github.com/mightyiam/edited.git'
+  'url': 'http://github.com/PolicyStat/edited.git'
 }
 content.scripts = {
-  'license': 'license-generator install bsd-3-clause -n "' + policystat.name.pretty + '"',
+  'license': 'license-generator install ' + license.toLowerCase() +
+    ' -n "' + policystat.name.pretty + '"',
   'docs': 'verb',
   'lint': 'standard',
   'unit-local': 'node karma.js',
@@ -51,7 +53,5 @@ content.keywords = [
   'redo'
 ]
 content.author = require('mightyiam').authorStr
-content.license = {
-  type: 'MIT'
-}
+content.license = license
 content.copyright = policystat.copyrightNotice

@@ -1,4 +1,4 @@
-# edited  [![Build Status](https://travis-ci.org/mightyiam/edited.svg)](https://travis-ci.org/mightyiam/edited)  [![NPM](https://nodei.co/npm/edited.png)](https://nodei.co/npm/edited/)
+# edited  [![Build Status](https://travis-ci.org/PolicyStat/edited.svg)](https://travis-ci.org/PolicyStat/edited)  [![NPM](https://nodei.co/npm/edited.png)](https://nodei.co/npm/edited/)
 
 
 Listens on editable elements and calls back on significant changes
@@ -62,4 +62,4 @@ Copyright © 2015 PolicyStat LLC
 
 ## License
 
-MIT
+BSD-3-Clause
