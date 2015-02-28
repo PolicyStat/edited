@@ -62,4 +62,4 @@ Copyright © 2015 PolicyStat LLC
 
 ## License
 
-MIT
+BSD-3-Clause
