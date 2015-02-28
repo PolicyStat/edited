@@ -12,10 +12,9 @@ var keyboard = require('keysim').Keyboard.US_ENGLISH
 var emit = require('dom-events').emit
 var randomChars = require('randomatic')
 var forEach = require('foreach')
-var isNode = require('isnode')
 
 // get a document, whether in browser or node
-var doc = isNode ? require('jsdom').jsdom() : document
+var doc = document
 
 // pressing a key by name on an element
 var press = function (element, key) {

@@ -6,14 +6,7 @@ common.frameworks = ['browserify', 'jasmine']
 common.files = [SPEC_FILE_PATH]
 common.preprocessors = {}
 common.preprocessors[SPEC_FILE_PATH] = 'browserify'
-common.browserify = {
-  debug: true,
-  configure: function (bundle) {
-    bundle.on('prebundle', function () {
-      bundle.exclude('jsdom')
-    })
-  }
-}
+common.browserify = {debug: true}
 common.reporters = ['progress']
 
 module.exports = common
