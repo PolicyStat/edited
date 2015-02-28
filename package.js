@@ -34,7 +34,7 @@ content.devDependencies = {
 }
 content.repository = {
   'type': 'git',
-  'url': 'http://github.com/mightyiam/edited.git'
+  'url': 'http://github.com/PolicyStat/edited.git'
 }
 content.scripts = {
   'license': 'license-generator install bsd-3-clause -n "' + policystat.name.pretty + '"',
