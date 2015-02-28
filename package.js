@@ -40,7 +40,7 @@ content.repository = {
 content.scripts = {
   'license': 'license-generator install ' + license.toLowerCase() +
     ' -n "' + policystat.name.pretty + '"',
-  'docs': 'verb',
+  'docs': 'node node_modules/.bin/verb',
   'lint': 'standard',
   'unit-local': 'node karma.js',
   'unit-ci': 'node karma-ci.js',
