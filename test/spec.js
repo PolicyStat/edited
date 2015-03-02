@@ -108,18 +108,30 @@ describe('Instantiation', function () {
     }).toThrow()
   })
   it('possible on a DOM element and does not callback initially', function () {
-    var spy = jasmine.createSpy()
+    var onSensible = jasmine.createSpy()
+    var onAny = jasmine.createSpy()
     var element = makeEditableElement()
-    var edited = new Edited(element, spy)
+    var edited = new Edited(element, onSensible, onAny)
     expect(edited instanceof Edited).toBe(true)
-    expect(spy).not.toHaveBeenCalled()
+    expect(onSensible).not.toHaveBeenCalled()
+    expect(onAny).not.toHaveBeenCalled()
+    edited.detach()
+  })
+  it('onAny callback is optional', function () {
+    var onSensible = jasmine.createSpy()
+    var element = makeEditableElement()
+    var edited = new Edited(element, onSensible)
+    expect(edited instanceof Edited).toBe(true)
+    expect(onSensible).not.toHaveBeenCalled()
     edited.detach()
   })
   it('possible on a body element', function () {
-    var spy = jasmine.createSpy()
-    var edited = new Edited(doc.body, spy)
+    var onSensible = jasmine.createSpy()
+    var onAny = jasmine.createSpy()
+    var edited = new Edited(doc.body, onSensible, onAny)
     expect(edited instanceof Edited).toBe(true)
-    expect(spy).not.toHaveBeenCalled()
+    expect(onSensible).not.toHaveBeenCalled()
+    expect(onAny).not.toHaveBeenCalled()
     edited.detach()
   })
 })
@@ -130,23 +142,30 @@ describe('`detach` method', function () {
     function () {
     var element = makeEditableElement()
 
-    var callbackCalled = 0 // this is what we test on
+    var sensibles = 0
+    var anys = 0
 
-    var callback = function () {
-      callbackCalled++
+    var onSensible = function () {
+      sensibles++
     }
 
-    var edited = new Edited(element, callback)
+    var onAny = function () {
+      anys++
+    }
+
+    var edited = new Edited(element, onSensible, onAny)
 
     // just checking that the callback works
     editTypes.characterAddition.triggerFunc.call(edited)
     editTypes.space.triggerFunc.call(edited)
-    expect(callbackCalled).toBe(1)
+    expect(sensibles).toBe(1)
+    expect(anys).toBe(2)
 
     // checking that `detach` method works
     edited.detach()
     editTypes.backwardsRemoval.triggerFunc.call(edited)
-    expect(callbackCalled).toBe(1)
+    expect(sensibles).toBe(1)
+    expect(anys).toBe(2)
   })
 })
 
@@ -165,16 +184,17 @@ var instantiateTriggerAndAssert = function (
   // e.g `'FLF'`: former, latter, former
   triggerSeq,
   // how many call backs do we expect from this
-  expectedCbCount
+  expectedSensibles,
+  expectedAnys
 ) {
   var former = testPair[0]
   var latter = testPair[1]
 
-  // a spy will be the provided callback
-  var spy = jasmine.createSpy()
+  var onSensible = jasmine.createSpy()
+  var onAny = jasmine.createSpy()
 
   var element = makeEditableElement()
-  var edited = new Edited(element, spy)
+  var edited = new Edited(element, onSensible, onAny)
 
   // trigger the former and the latter according to the provided sequence
   triggerSeq.split('').forEach(function (c) {
@@ -182,7 +202,8 @@ var instantiateTriggerAndAssert = function (
     formerOrLatter.triggerFunc.call(edited)
   })
 
-  expect(spy.calls.count()).toBe(expectedCbCount)
+  expect(onSensible.calls.count()).toBe(expectedSensibles)
+  expect(onAny.calls.count()).toBe(expectedAnys)
 }
 
 // iterate over the edit types and test each against each other
@@ -193,22 +214,22 @@ forEach(editTypeTestPairs, function (pair) {
 
   describe('(F)ormer = ' + former.name + ', ' +
     '(L)atter = ' + latter.name + ':', function () {
-    it('does not callback on first edit', function () {
-      instantiateTriggerAndAssert(pair, 'F', 0)
+    it('0 sensible & 1 any on first edit', function () {
+      instantiateTriggerAndAssert(pair, 'F', 0, 1)
     })
 
-    it('calls back once on F,L', function () {
-      instantiateTriggerAndAssert(pair, 'FL', 1)
+    it('1 sensible & 2 any on F,L', function () {
+      instantiateTriggerAndAssert(pair, 'FL', 1, 2)
     })
 
-    it('calls back twice on F,L,F', function () {
-      instantiateTriggerAndAssert(pair, 'FLF', 2)
+    it('2 sensible & 3 any on F,L,F', function () {
+      instantiateTriggerAndAssert(pair, 'FLF', 2, 3)
     })
 
-    it('calls back ' + (former.callsBackOnConsecutive ? '5 times' : 'twice') +
-      ' on F,F,F,L,F,F', function () {
-      var times = former.callsBackOnConsecutive ? 5 : 2
-      instantiateTriggerAndAssert(pair, 'FFFLFF', times)
+    it((former.callsBackOnConsecutive ? '5' : '2') +
+      'sensible & 6 any on F,F,F,L,F,F', function () {
+      var sensibles = former.callsBackOnConsecutive ? 5 : 2
+      instantiateTriggerAndAssert(pair, 'FFFLFF', sensibles, 6)
     })
   })
 })
@@ -265,7 +286,8 @@ describe('on key combo', function () {
       instantiateTriggerAndAssert(
         pair,
         'FFFLFFFFFFFLF',
-        pair[1].callsBackOnConsecutive ? 1 : 0
+        pair[1].callsBackOnConsecutive ? 1 : 0,
+        2
       )
     })
   })

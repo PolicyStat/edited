@@ -36,11 +36,16 @@ integration and I’ll mention it here).
 ``` javascript
 var Edited = require(‘edited’)
 
-var cb = function() {
-    // register undo point, autosave, etc
+var onSensible = function () {
+  // register undo point, autosave, etc
 }
 
-var edited = new Edited(someEditableElement, cb)
+// optional: provide a function that will be called on any edit
+var onAny = function () {
+  // this may also be useful
+}
+
+var edited = new Edited(someEditableElement, onSensible, onAny)
 
 // benefit!
 
