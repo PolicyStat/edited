@@ -13,6 +13,7 @@ var conf = xtend(common, {
 getBrowsers.then(function (browsers) {
   conf.customLaunchers = browsers
   conf.browsers = Object.keys(browsers)
+  conf.logLevel = 'debug'
   server.start(conf, function (exitCode) {
     process.exit(exitCode)
   })
