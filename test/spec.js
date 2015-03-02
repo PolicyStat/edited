@@ -113,12 +113,14 @@ describe('Instantiation', function () {
     var edited = new Edited(element, spy)
     expect(edited instanceof Edited).toBe(true)
     expect(spy).not.toHaveBeenCalled()
+    edited.detach()
   })
   it('possible on a body element', function () {
     var spy = jasmine.createSpy()
     var edited = new Edited(doc.body, spy)
     expect(edited instanceof Edited).toBe(true)
     expect(spy).not.toHaveBeenCalled()
+    edited.detach()
   })
 })
 /* eslint no-unused-vars:1 */
