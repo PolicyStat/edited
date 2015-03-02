@@ -6,7 +6,8 @@ var xtend = require('xtend')
 common.reporters.push('saucelabs')
 
 var conf = xtend(common, {
-  singleRun: true
+  singleRun: true,
+  captureTimeout: 0
 })
 
 getBrowsers.then(function (browsers) {
