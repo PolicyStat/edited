@@ -25,15 +25,15 @@ Edited supports the following edit types:
 
 ### "Sensible" Edits
 
-Edited does work to only provide you with edits that you care about.
-Instead of giving you 19 edits when the user types `awesomesauce module`,
-you get 3 edits.
+Edited does work to callback only on edits that you care about.
+Instead of 19 callbacks when the user types `awesomesauce module`,
+you get 3 callbacks.
 One for `awesomesauce`,
 one for the space,
 and another for `module`.
 
 Specifically,
-when the `Edit Type` changes,
+when the Edit Type changes,
 then it is determined that a sensible edit was made
 and the provided callback is fired.
 For the paste and drop `Edit Type`s,
