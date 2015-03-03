@@ -96,11 +96,6 @@ describe('Instantiation', function () {
       var edited = new Edited()
     }).toThrow()
   })
-  it('throws when not given a DOM element', function () {
-    expect(function () {
-      var edited = new Edited('not a DOM element', function () {})
-    }).toThrow()
-  })
   it('throws when not given a callback', function () {
     expect(function () {
       var element = makeEditableElement()

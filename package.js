@@ -10,8 +10,7 @@ content.main = 'lib/Edited/index.js'
 content.dependencies = {
   'add-event-handler': '^1.0.0',
   'dom-events': '^0.1.1',
-  'keycode': '^2.0.0',
-  'is_element': '^0.0.11'
+  'keycode': '^2.0.0'
 }
 content.devDependencies = {
   mightyiam: '^1.1.5',
