@@ -10,7 +10,10 @@ Listens on editable elements and calls back on significant changes
 It listens on the events that could possibly be edits on the
 provided element and determines their edit type.
 
-Edit types are:
+### Edit Types
+
+Edited supports the following edit types:
+
 * Character addition
 * Backward deletion
 * Forward deletion
@@ -18,18 +21,30 @@ Edit types are:
 * Enter
 * Paste
 * Drop
-* Cut—intended for future release
+* Cut (not yet implemented)
 
-When the last edit type is different than the previous, then it is
-determined that a sensible edit was made and the provided callback is
-fired.
+### "Sensible" Edits
 
-Also, for edit types paste and drop, each consecutive edit is determined
-a sensible edit.
+Edited does work to only provide you with edits that you care about.
+Instead of giving you 19 edits when the user types `awesomesauce module`,
+you get 3 edits.
+One for `awesomesauce`,
+one for the space,
+and another for `module`.
 
-Makes sense?
+Specifically,
+when the `Edit Type` changes,
+then it is determined that a sensible edit was made
+and the provided callback is fired.
+For the paste and drop `Edit Type`s,
+every edit counts as a sensible edit.
 
-Optionally, a function can be provided, which will be called back on any edit.
+### onAny
+
+Optionally,
+a function can be provided,
+which will be called back on any edit
+(not  just `Sensible Edits`).
 
 This module may be useful for registering undo/redo points, resource–friendlier
 autosaves and probably more (register an issue describing your
