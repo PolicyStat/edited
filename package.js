@@ -15,21 +15,21 @@ content.dependencies = {
 content.devDependencies = {
   mightyiam: '^1.1.5',
   policystat: '^1.2.2',
+  'policystat-sauce-browsers': '2.0.0',
   'auto-package': '^0.2.0',
   'es5-shim': '^4.1.0',
   'foreach': '^2.0.5',
   'jasmine-core': '^2.2.0',
   'karma': '^0.12.31',
   'karma-browserify': '^3.0.2',
-  'karma-chrome-launcher': '^0.1.7',
-  'karma-cli': '0.0.4',
-  'karma-firefox-launcher': '^0.1.4',
+  'karma-sauce-launcher': '^0.2.10',
   'karma-jasmine': '^0.3.5',
   'keysim': '^1.1.2',
   'randomatic': '^1.1.0',
   'selenium-server': '^2.44.0',
   'standard': '^2.4.4',
   'license-generator': '^0.0.13',
+  'xtend': '^4.0.0',
   'verb-cli': '^0.4.4'
 }
 content.repository = {
@@ -41,8 +41,9 @@ content.scripts = {
     ' -n "' + policystat.name.pretty + '"',
   'docs': 'verb',
   'lint': 'standard',
-  'test-browsers': 'karma start',
-  'test': 'npm run license && npm run docs && npm run lint && npm run test-browsers'
+  'unit-local': 'node karma.js',
+  'unit-ci': 'node karma-ci.js',
+  'test': 'npm run license && npm run docs && npm run lint && npm run unit-ci'
 }
 content.keywords = [
   'contentEditable',
