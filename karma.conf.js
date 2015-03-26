@@ -1,4 +1,4 @@
-var SPEC_FILE_PATH = 'test/spec.js'
+var SPEC_FILE_PATH = 'test/unit/index.js'
 var CI = !!process.env.CI
 
 var c = {}
