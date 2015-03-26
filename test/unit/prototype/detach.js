@@ -1,6 +1,6 @@
 /* eslint-env jasmine */
 var editTypes = require('../helpers/edit-types')
-var makeEditableElement = ('../helpers/make-editable-element')
+var makeEditableElement = require('../helpers/make-editable-element')
 var Edited = require('../../..')
 
 describe('`detach` method', function () {
