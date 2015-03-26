@@ -8,7 +8,7 @@ c.preprocessors = {}
 c.preprocessors[SPEC_FILE_PATH] = 'browserify'
 c.browserify = {debug: true}
 c.reporters = ['progress']
-c.browsers = ['Chrome', 'Firefox']
+c.browsers = ['Chrome']
 c.singleRun = CI
 
 module.exports = function (config) {
