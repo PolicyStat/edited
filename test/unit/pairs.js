@@ -32,7 +32,7 @@ forEach(editTypeTestPairs, function (pair) {
     })
 
     it((former.callsBackOnConsecutive ? '5' : '2') +
-      'sensible & 6 any on F,F,F,L,F,F', function () {
+      ' sensible & 6 any on F,F,F,L,F,F', function () {
       var sensibles = former.callsBackOnConsecutive ? 5 : 2
       instantiateTriggerAndAssert(pair, 'FFFLFF', sensibles, 6)
     })
