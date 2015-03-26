@@ -137,30 +137,22 @@ describe('`detach` method', function () {
     function () {
     var element = makeEditableElement()
 
-    var sensibles = 0
-    var anys = 0
-
-    var onSensible = function () {
-      sensibles++
-    }
-
-    var onAny = function () {
-      anys++
-    }
+    var onSensible = jasmine.createSpy()
+    var onAny = jasmine.createSpy()
 
     var edited = new Edited(element, onSensible, onAny)
 
     // just checking that the callback works
     editTypes.characterAddition.triggerFunc.call(edited)
     editTypes.space.triggerFunc.call(edited)
-    expect(sensibles).toBe(1)
-    expect(anys).toBe(2)
+    expect(onSensible.calls.count()).toBe(1)
+    expect(onAny.calls.count()).toBe(2)
 
     // checking that `detach` method works
     edited.detach()
     editTypes.backwardsRemoval.triggerFunc.call(edited)
-    expect(sensibles).toBe(1)
-    expect(anys).toBe(2)
+    expect(onSensible.calls.count()).toBe(1)
+    expect(onAny.calls.count()).toBe(2)
   })
 })
 
