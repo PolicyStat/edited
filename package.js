@@ -8,6 +8,7 @@ auto.versionFile()
 content.description = 'Listens on editable elements and calls back on significant changes'
 content.main = 'lib/Edited/index.js'
 content.dependencies = {
+  combokeys: '^2.4.3',
   'add-event-handler': '^1.0.0',
   'dom-events': '^0.1.1',
   'keycode': '^2.0.0'
