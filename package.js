@@ -14,6 +14,10 @@ content.dependencies = {
   'keycode': '^2.0.0'
 }
 content.devDependencies = {
+  sinon: '^1.14.1',
+  jquery: '^1.11.2',
+  express: '^4.12.3',
+  'browserify-middleware': '^5.0.2',
   mightyiam: '^1.1.5',
   policystat: '^1.2.2',
   'auto-package': '^0.2.0',
@@ -42,6 +46,7 @@ content.scripts = {
     ' -n "' + policystat.name.pretty + '"',
   'docs': 'verb',
   'lint': 'standard',
+  'start-testbench-server': 'node test/bench/server',
   'test-browsers': 'karma start',
   'test': 'npm run license && npm run docs && npm run lint && npm run test-browsers'
 }
