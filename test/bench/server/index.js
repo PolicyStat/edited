@@ -1,4 +1,4 @@
-var server = require('./server')
+var setup = require('./setup')
 var getPort = require('./get-port')
 var listen = require('./listen')
 
@@ -13,4 +13,4 @@ var listen = require('./listen')
  *  This module can be required or run standalone
  *  (`node test/bench/server`).
  */
-module.exports = getPort(server).then(listen)
+module.exports = setup.then(getPort).then(listen)
