@@ -1,3 +1,5 @@
-var startServer = require('./start-server')
+var server = require('./server')
+var getPort = require('./get-port')
+var listen = require('./listen')
 
-startServer()
+module.exports = getPort(server).then(listen)

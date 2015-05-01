@@ -14,6 +14,8 @@ content.dependencies = {
   'keycode': '^2.0.0'
 }
 content.devDependencies = {
+  promise: '^7.0.1',
+  'get-port': '^1.0.0',
   sinon: '^1.14.1',
   jquery: '^1.11.2',
   express: '^4.12.3',
