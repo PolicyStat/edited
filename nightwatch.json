@@ -1,0 +1,10 @@
+{
+  "src_folders": ["test/functional/tests"],
+  "test_settings": {
+    "default": {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    }
+  }
+}
