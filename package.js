@@ -14,6 +14,7 @@ content.dependencies = {
   'keycode': '^2.0.0'
 }
 content.devDependencies = {
+  bluebird: '^2.9.25',
   promise: '^7.0.1',
   'get-port': '^1.0.0',
   sinon: '^1.14.1',
