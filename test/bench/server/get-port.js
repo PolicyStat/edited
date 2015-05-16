@@ -1,4 +1,4 @@
-var Promise = require('promise')
+var Promise = require('bluebird')
 var getPort = require('get-port')
 
 module.exports = function (state) {

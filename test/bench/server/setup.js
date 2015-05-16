@@ -1,4 +1,4 @@
-var Promise = require('promise')
+var Promise = require('bluebird')
 var browserify = require('browserify-middleware')
 var app = require('express')()
 
