@@ -9,6 +9,9 @@ module.exports = function ($editablesTable, tag) {
           '<li style="text-align:right">onAny: <span class="report on-any">0</span></li>',
         '</ul>',
       '</td>',
+      '<td style="text-align:center" class="reset-callback-count">',
+        '<button>Reset</button>',
+      '</td>',
     '</tr>'
   ].join(''))
 }

@@ -1,6 +1,7 @@
 var createEditablesTableStructure = require('./create-editables-table-structure')
 var makeEditableElementInEditablesTable = require('./make-editable-element-in-editables-table')
 var instantiateEditedOnEditableElement = require('./instantiate-edited-on-editable-element')
+var activateResetButton = require('./activate-reset-button')
 var editablesTags = require('./editable-tags')
 
 module.exports = function ($editablesTable) {
@@ -10,5 +11,6 @@ module.exports = function ($editablesTable) {
 
     makeEditableElementInEditablesTable(tag, $tagRow)
     instantiateEditedOnEditableElement($tagRow)
+    activateResetButton($tagRow)
   })
 }
