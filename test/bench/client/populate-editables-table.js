@@ -6,7 +6,9 @@ var editablesTags = require('./editable-tags')
 module.exports = function ($editablesTable) {
   editablesTags.forEach(function (tag) {
     createEditablesTableStructure($editablesTable, tag)
-    makeEditableElementInEditablesTable($editablesTable, tag)
-    instantiateEditedOnEditableElement($editablesTable, tag)
+    var $tagRow = $editablesTable.find('tr.' + tag)
+
+    makeEditableElementInEditablesTable(tag, $tagRow)
+    instantiateEditedOnEditableElement($tagRow)
   })
 }
