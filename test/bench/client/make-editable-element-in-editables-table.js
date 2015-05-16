@@ -1,14 +1,9 @@
-var $ = require('jquery')
-var stylizeEditableElement = require('./stylize-editable-element')
+var createEditableElement = require('./create-editable-element')
 var makeEditableElementEditable = require('./make-editable-element-editable')
-var alreadyEditableElementsTags = require('./already-editable-elements-tags')
 
 module.exports = function ($editablesTable, tag) {
-  var $editableElement = $('<' + tag + ' class="editable-element">')
+  var $editableElement = createEditableElement(tag)
   $editablesTable.find('tr.' + tag + ' td.element')
     .append($editableElement)
-  stylizeEditableElement($editableElement)
-  if (alreadyEditableElementsTags.indexOf(tag) === -1) {
-    makeEditableElementEditable($editableElement)
-  }
+  makeEditableElementEditable($editableElement)
 }
