@@ -7,6 +7,5 @@ module.exports = [
   'textarea',
   'input',
   'span',
-  'a',
-  'button'
+  'a'
 ]
