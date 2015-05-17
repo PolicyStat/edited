@@ -14,6 +14,8 @@ content.dependencies = {
   'keycode': '^2.0.0'
 }
 content.devDependencies = {
+  'lodash.kebabcase': '^3.0.1',
+  nightwatch: '^0.6.10',
   bluebird: '^2.9.25',
   'get-port': '^1.0.0',
   sinon: '^1.14.1',

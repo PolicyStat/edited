@@ -1,0 +1,13 @@
+{
+  "src_folders": ["test/functional/tests"],
+  "output_folder": false,
+  "globals_path": "test/functional/globals",
+  "page_objects_path": "test/functional/page-objects",
+  "test_settings": {
+    "default": {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    }
+  }
+}
