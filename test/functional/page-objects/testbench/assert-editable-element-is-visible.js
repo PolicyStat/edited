@@ -1,9 +1,7 @@
-var path = require('path')
-var getEditableElementSelector = require(path.resolve('test/functional/get-editable-element-selector'))
+var editableElementSelector = require('../../editable-element-selector')
 
-module.exports = function (tag) {
-  var editableElementSelector = getEditableElementSelector(tag)
+module.exports = function () {
   var browser = this.browser
-  browser.assert.visible(editableElementSelector, 'editable element is visible')
+  browser.assert.visible(editableElementSelector, 'Editable element is visible')
   return browser
 }

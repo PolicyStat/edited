@@ -14,12 +14,12 @@ content.dependencies = {
   'keycode': '^2.0.0'
 }
 content.devDependencies = {
+  react: '^0.13.3',
   'lodash.kebabcase': '^3.0.1',
   nightwatch: '^0.6.10',
   bluebird: '^2.9.25',
   'get-port': '^1.0.0',
   sinon: '^1.14.1',
-  jquery: '^1.11.2',
   express: '^4.12.3',
   'browserify-middleware': '^5.0.2',
   mightyiam: '^1.1.5',

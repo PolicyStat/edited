@@ -1,7 +1,7 @@
-module.exports = function (selector, callback) {
+module.exports = function (elementSelector, callback) {
   var browser = this.browser
-  browser.element('css selector', selector, function (result) {
-    browser.assert.equal(
+  browser.element('css selector', elementSelector, function (result) {
+    browser.assert.strictEqual(
       result.status, 0, 'got editable element ID')
     callback(result.value.ELEMENT)
   })
