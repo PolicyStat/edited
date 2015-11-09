@@ -4,8 +4,7 @@ var makeEditableElement = require('../helpers/make-editable-element')
 var Edited = require('../../..')
 
 describe('`detach` method', function () {
-  it('detaches the instance\'s event listener from the instance\'s element',
-    function () {
+  it('detaches the instance\'s event listener from the instance\'s element', function () {
     var element = makeEditableElement()
 
     var onSensible = jasmine.createSpy()
