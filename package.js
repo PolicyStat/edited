@@ -50,7 +50,7 @@ content.scripts = {
   'lint': 'standard',
   'start-testbench-server': 'node test/bench/server',
   'test-browsers': 'karma start',
-  'test': 'npm run license && npm run docs && npm run lint && npm run test-browsers'
+  'test': 'npm run lint && npm run license && npm run docs && npm run test-browsers'
 }
 content.keywords = [
   'contentEditable',
