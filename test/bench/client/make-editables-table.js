@@ -3,6 +3,7 @@ var populateEditablesTable = require('./populate-editables-table')
 
 module.exports = function () {
   var $editablesTable = $([
+    /* eslint-disable indent */
     '<table id="editables"><tbody>',
       '<tr>',
         '<th>Element Tag</th>',
@@ -11,6 +12,7 @@ module.exports = function () {
         '<th>Reset Callback Count</th>',
       '</tr>',
     '</tbody></table>'
+    /* eslint-enable indent */
   ].join('')).appendTo('body')
 
   populateEditablesTable($editablesTable)

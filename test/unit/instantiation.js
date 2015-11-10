@@ -3,17 +3,16 @@
 var Edited = require('../..')
 var makeEditableElement = require('./helpers/make-editable-element')
 
-/* eslint no-unused-vars:0 */
 describe('Instantiation', function () {
   it('throws when not given arguments', function () {
     expect(function () {
-      var edited = new Edited()
+      var edited = new Edited() // eslint-disable-line no-unused-vars
     }).toThrow()
   })
   it('throws when not given a callback', function () {
     expect(function () {
       var element = makeEditableElement()
-      var edited = new Edited(element, 12412)
+      var edited = new Edited(element, 12412) // eslint-disable-line no-unused-vars
     }).toThrow()
   })
   it('possible on a DOM element and does not callback initially', function () {
@@ -44,4 +43,3 @@ describe('Instantiation', function () {
     edited.detach()
   })
 })
-/* eslint no-unused-vars:1 */
