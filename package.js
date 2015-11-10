@@ -35,7 +35,7 @@ content.devDependencies = {
   'keysim': '^1.1.2',
   'randomatic': '^1.1.0',
   'selenium-server': '^2.44.0',
-  'standard': '*',
+  'standard': '^5.3.1',
   'license-generator': '^0.0.13',
   'verb-cli': '^0.4.4'
 }
