@@ -1,5 +1,6 @@
 module.exports = function ($editablesTable, tag) {
   $editablesTable.find('tbody').append([
+    /* eslint-disable indent */
     '<tr class="' + tag + '">',
       '<td class="tag">' + tag + '</td>',
       '<td class="element"></td>',
@@ -13,5 +14,6 @@ module.exports = function ($editablesTable, tag) {
         '<button>Reset</button>',
       '</td>',
     '</tr>'
+    /* eslint-enable indent */
   ].join(''))
 }
