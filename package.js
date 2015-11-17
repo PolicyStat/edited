@@ -37,7 +37,7 @@ content.devDependencies = {
   'selenium-server': '^2.44.0',
   'standard': '^5.3.1',
   'license-generator': '^0.0.13',
-  'verb-cli': '^0.4.4'
+  verb: '^0.8.10'
 }
 content.repository = {
   'type': 'git',

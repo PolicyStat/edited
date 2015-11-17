@@ -1,6 +1,5 @@
 # edited  [![Build Status](https://travis-ci.org/PolicyStat/edited.svg)](https://travis-ci.org/PolicyStat/edited)  [![NPM](https://nodei.co/npm/edited.png)](https://nodei.co/npm/edited/)
 
-
 Listens on editable elements and calls back on significant changes
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/edited.svg)](https://saucelabs.com/u/edited)
@@ -52,7 +51,7 @@ integration and I’ll mention it here).
 
 ## Example
 
-``` javascript
+```javascript
 var Edited = require(‘edited’)
 
 var onSensible = function () {
