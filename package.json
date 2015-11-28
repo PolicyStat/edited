@@ -33,7 +33,7 @@
     "redo"
   ],
   "name": "edited",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Listens on editable elements and calls back on significant changes",
   "main": "lib/Edited/index.js",
   "repository": {
